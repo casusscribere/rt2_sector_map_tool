@@ -1,0 +1,1889 @@
+{
+  "id": "planet_designations",
+  "name": "Imperial & Xenos Planetary Classifications — Comprehensive WH40k Designation Index",
+  "version": "2.0.0",
+  "compiled": "2026-05-20",
+  "_provenance": "wider_ip_synthesized_from_canonical_sources",
+  "_provenance_note": "Compiled from (a) Warhammer 40k 3rd-edition rulebook pp.114-115 [GW 1998] for canonical Greek-letter codes, populations, tithes, Aestimare ranges, and aggregate galactic counts; (b) Lexicanum (wh40k.lexicanum.com) for individual designation articles; (c) Warhammer 40k Wiki / Fandom (warhammer40k.fandom.com) for additional designations not on Lexicanum; (d) FFG/Cubicle 7 Rogue Trader RPG line — Stars of Inequity (RT14), Koronus Bestiary, Battlefleet Koronus, Edge of the Abyss, Into the Storm — for FFG-specific designations and the Koronus Expanse classifications; (e) skill `warhammer-40k-lore` reference files (geography.md, insignia-heraldry.md, rogue-trader.md) for cross-validation, voice, and iconography conventions. Iconography fields describe canonical-style heraldic conventions as seen on GW codex maps, FFG RT/DH sector cartography, and the community-canonical Wyrmlog v6.0 map-icon set. Where a specific glyph is not formally codified by GW, `iconography.shape` is marked `convention` rather than `canonical`.",
+  "_authority": "tier_4_synthesized",
+  "_doc": "Designation IDs are stable; downstream code (rules/classify_world.py, rules/lore_generation.py, art/render_system_map*.py) references entries by id. Greek-letter codes (γ, η, φ, α, μ, δ, δτ, ε, ρ, φλ) are 3rd-edition Administratum canonical; sub-class brackets like γ[cc] use the 3rd-edition rulebook convention (cc = Cardinal, cg = Garden, cm = Mining, etc.). Many later-edition or codex-only designations have no Greek code — these have `greek_class: null`.",
+
+  "designations": [
+    {
+      "id": "civilized_world",
+      "name": "Civilized World",
+      "also_known_as": ["Civilised World"],
+      "greek_class": "γ",
+      "greek_class_name": "gamma",
+      "category": "imperial_settled",
+      "description": "Self-sufficient Imperial planet roughly equivalent in culture and technology to early-3rd-Millennium Old Earth. Population centres are large cities or other urban environments supported by indigenous agriculture; technological and social development is close to the current Imperial norm. The most common Imperial settlement type. Sub-classified as Cardinal [cc], Garden [cg], or Mining [cm] when applicable.",
+      "population_range": "15,000,000 – 10,000,000,000",
+      "tithe_grade_range": "Solutio Extremis – Exactis Tertius",
+      "aestimare_range": "A50 – F1000",
+      "aggregate_count_in_galaxy_3e": 3500,
+      "examples": ["Desedna", "Espandor", "Korsk II", "Rhanda", "Tallarn", "Scintilla (Calixis)"],
+      "sources": ["src_wh40k_3e_p114", "lexicanum_civilised_world", "fandom_civilised_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Stylized hive-spire silhouette OR aquila-on-disc",
+        "colors": ["white", "Imperial bone/parchment"],
+        "associated_symbol": "Aquila (Imperial Eagle), Adeptus Terra wreath",
+        "map_marker_convention": "Plain circle on parchment; black skull on Mechanicus blueprints",
+        "wyrmlog_class_glyph": "Civilised World — outlined sphere with subtle building silhouette"
+      }
+    },
+    {
+      "id": "hive_world",
+      "name": "Hive World",
+      "greek_class": "η",
+      "greek_class_name": "eta",
+      "category": "imperial_settled",
+      "description": "Massively overpopulated planet covered in mile-high arcology-stacks ('hives') housing trillions. Surface generally inhospitable to unprotected human life after centuries of industrial processing. Hive cities, factory complexes, mining concerns, and atmosphere-processors are the principal centres. Heavy net importer of foodstuffs and fresh water; heavy net exporter of manufactured goods and Astra Militarum recruits.",
+      "population_range": "100,000,000,000 – 500,000,000,000",
+      "tithe_grade_range": "Decuma Particular – Exactis Extremis",
+      "aestimare_range": "B50 – E400",
+      "aggregate_count_in_galaxy_3e": 1400,
+      "examples": ["Armageddon", "Avellorn", "Ichar IV", "Kado", "Lastrati", "Mordia", "Necromunda", "Vanaheim", "Holy Terra"],
+      "sources": ["src_wh40k_3e_p114", "lexicanum_hive_world", "fandom_hive_world"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Multi-tiered ziggurat or pyramidal hive-spire silhouette; concentric/stepped triangles",
+        "colors": ["smog-grey", "ash-black", "rust-orange"],
+        "associated_symbol": "Hive-spire glyph, Munitorum requisition aquila",
+        "map_marker_convention": "Black filled circle ringed with three smaller satellite dots (population indicator)",
+        "wyrmlog_class_glyph": "Hive World — circle bisected by horizontal tier lines"
+      }
+    },
+    {
+      "id": "forge_world",
+      "name": "Forge World",
+      "greek_class": "φ",
+      "greek_class_name": "phi",
+      "category": "mechanicus",
+      "description": "Sovereign domain of the Adeptus Mechanicus — a planet-wide factory and seat of the Cult Mechanicus. Surfaces covered in forge cities and forge temples; atmospheres saturated with toxic gases and industrial runoff. Often home of a Titan Legion. Officially exempt from Imperial Tithe under ancient Mechanicus trade pacts (AdMech 1/0027-16/5244), but absolutely vital to Imperial military supply.",
+      "population_range": "1,000,000 – 15,000,000,000",
+      "tithe_grade_range": "Aptus non (exempt — see Trades Pacts)",
+      "aestimare_range": "A1 – C500",
+      "aggregate_count_in_galaxy_3e": "+1000",
+      "examples": ["Mars", "Lucius", "Stygies VIII", "Graia", "Metalica", "Ryza", "Agripinaa", "Voss", "Phaeton", "Mezoa", "Esteban VII", "Gryphonne IV", "Triplex Phall", "The Lathes (Lathe-Het, Lathe-Hesh, Lathe-Het Mar)"],
+      "sources": ["src_wh40k_3e_p115", "lexicanum_forge_world", "fandom_forge_world"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Cog Mechanicum (Opus Machina) — hybrid human/cyborg half-skull centered in an industrial cog/gear",
+        "colors": ["mechanicus-red (#8B0000)", "gunmetal", "brass"],
+        "associated_symbol": "Cog Mechanicum, Skull of the Omnissiah, gear/cog motif",
+        "map_marker_convention": "Red-bordered cog glyph; Mechanicus-red shading on the planet's slot",
+        "wyrmlog_class_glyph": "Forge World — cog/gear ringing the planet circle"
+      }
+    },
+    {
+      "id": "industrial_world",
+      "name": "Industrial World",
+      "also_known_as": ["Manufactory World"],
+      "greek_class": null,
+      "category": "imperial_settled",
+      "description": "Factory world devoted to manufacturing or mining at a scale lower than Forge Worlds but greater than typical Civilised Worlds. Population is sparse, with most labor carried out mechanically. Industrial mining worlds must be considerably mineral-rich to justify the logistical effort. Often have strong economic and military cooperation with the Adeptus Mechanicus; many are classified as a Civilised World sub-type rather than a standalone class.",
+      "population_range": "Variable, often sparse despite output",
+      "tithe_grade_range": "Exactis Mediam – Decuma Particular",
+      "aestimare_range": "B100 – D500",
+      "examples": ["Fenksworld (Calixis)", "various unnamed Sub-sector capitals"],
+      "sources": ["lexicanum_industrial_world", "fandom_industrial_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Factory-stack silhouette (without the Mechanicus cog); industrial chevron",
+        "colors": ["industrial-grey", "soot-black", "rust-brown"],
+        "associated_symbol": "Manufactorum aquila, Munitorum stamp",
+        "map_marker_convention": "Grey filled circle; small smokestack overlay",
+        "wyrmlog_class_glyph": "Industrial World — circle with factory chimney"
+      }
+    },
+    {
+      "id": "agri_world",
+      "name": "Agri-World",
+      "also_known_as": ["Agriworld"],
+      "greek_class": "α",
+      "greek_class_name": "alpha",
+      "category": "imperial_settled",
+      "description": "Imperial planet wholly devoted to food production. ≥85% of the surface is given over to crop cultivation, hydroponics, animal fodder, or animal husbandry. Few major conurbations; population sparsely spread across the surface. Food forms the tithe and feeds dependent Hive Worlds.",
+      "population_range": "15,000 – 1,000,000",
+      "tithe_grade_range": "Exactis Prima – Exactis Particular",
+      "aestimare_range": "C500 – B50",
+      "aggregate_count_in_galaxy_3e": 2000,
+      "examples": ["Bellis XIV", "Chiros", "Kabaal II", "Verdan III", "Solomon (Calixis)"],
+      "sources": ["src_wh40k_3e_p114", "lexicanum_agri_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Wheat-sheaf or stylized grain icon; horned ox-skull and grain stalks",
+        "colors": ["wheat-gold", "verdant-green", "Imperial bone"],
+        "associated_symbol": "Granary aquila, Munitorum tithe-grain stamp",
+        "map_marker_convention": "Light-green or wheat-coloured planet ring; small wheat-sheaf glyph",
+        "wyrmlog_class_glyph": "Agri-World — circle with wheat-stalk crown"
+      }
+    },
+    {
+      "id": "feudal_world",
+      "name": "Feudal World",
+      "greek_class": "μ",
+      "greek_class_name": "mu",
+      "category": "imperial_settled",
+      "description": "Pre-industrial Imperial planet with technology at late-medieval / early-Renaissance level: black-powder weapons at the most advanced, often only blade-and-bow. Wide surface cultural and political organisations (kingdoms, baronies). Useful source of Astra Militarum and occasionally Adeptus Astartes recruits.",
+      "population_range": "10,000,000 – 500,000,000",
+      "tithe_grade_range": "Solutio Prima – Solutio Extremis",
+      "aestimare_range": "C750 – F1000",
+      "aggregate_count_in_galaxy_3e": 400,
+      "examples": ["Atilla", "Boras Minor", "Chbal", "Molov", "Solstice", "Yamnan"],
+      "sources": ["src_wh40k_3e_p115", "lexicanum_feudal_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Heraldic shield with crossed swords; tower-keep silhouette",
+        "colors": ["heraldic-red", "heraldic-blue", "bone"],
+        "associated_symbol": "Tower, shield, crown",
+        "map_marker_convention": "Plain circle with heraldic-shield mark",
+        "wyrmlog_class_glyph": "Feudal World — circle with tower silhouette"
+      }
+    },
+    {
+      "id": "feral_world",
+      "name": "Feral World",
+      "greek_class": "φλ",
+      "greek_class_name": "phi-lambda",
+      "category": "imperial_settled",
+      "description": "The most primitive of Imperial worlds: population is nomadic hunter-gatherers or early-agricultural tribesmen; technology is Stone Age, Bronze Age, or early Iron Age. Sometimes a rich source of Astra Militarum or Astartes recruits if culture-shock is survivable. Imperial Commanders are typically distant — often only orbital — with infrequent surface forays for psyker-purge.",
+      "population_range": "100,000 – 5,000,000",
+      "tithe_grade_range": "Solutio Tertius",
+      "aestimare_range": "F400 – G800",
+      "aggregate_count_in_galaxy_3e": 800,
+      "examples": ["Belami", "Davin", "Fenris", "Forman C2", "Kimmeria", "Iocanthos (Calixis)"],
+      "sources": ["src_wh40k_3e_p114", "lexicanum_feral_world", "fandom_feral_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Crossed spears or stone axe; tribal totem mask",
+        "colors": ["earthen brown", "ochre", "bone"],
+        "associated_symbol": "Hunter-gatherer totem, primitive spear",
+        "map_marker_convention": "Small circle, no embellishment; ringed brown",
+        "wyrmlog_class_glyph": "Feral World — circle with simple spear glyph"
+      }
+    },
+    {
+      "id": "death_world",
+      "name": "Death World",
+      "greek_class": "δτ",
+      "greek_class_name": "delta-tau",
+      "category": "hostile",
+      "description": "Planet too dangerous to support widespread human settlement. Types vary from world-wide jungles of carnivorous flora/fauna to barren volcanic wastelands wracked by ion storms. Near-impossible to colonise; survivable only via fortified outposts. Often harbour rich mineral, vegetable, animal, or gaseous resources that justify the cost.",
+      "population_range": "1,000 – 15,000,000",
+      "tithe_grade_range": "Solutio Tertius – Solutio Prima",
+      "aestimare_range": "D500 – G50",
+      "aggregate_count_in_galaxy_3e": 600,
+      "examples": ["Canark", "Catachan", "Lost Hope", "Miral", "Piscina V", "Pyrus", "Nocturne", "Mara (Calixis)"],
+      "sub_environment_types": ["Jungle Death World", "Volcanic Death World", "Ice Death World", "Toxic Death World", "Carnivore Death World"],
+      "sources": ["src_wh40k_3e_p115", "lexicanum_death_world", "fandom_death_world"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Skull (often horned/fanged variant) on a red triangular hazard mark",
+        "colors": ["blood-red", "biohazard-yellow", "black"],
+        "associated_symbol": "Skull-and-crossed-claws, biohazard trefoil",
+        "map_marker_convention": "Red-bordered planet glyph with skull overlay; red dashed warning ring",
+        "wyrmlog_class_glyph": "Death World — circle with red exterior glow and skull centre"
+      }
+    },
+    {
+      "id": "dead_world",
+      "name": "Dead World",
+      "greek_class": "δ",
+      "greek_class_name": "delta",
+      "category": "uninhabited",
+      "description": "Planet utterly devoid of an ecosystem, atmosphere, or any form of native life — much like Luna. Population zero (excluding Imperial facilities). Causes range from ecological catastrophe to internecine war with weapons of mass destruction, Exterminatus, alien intervention, Tyranid consumption, or unknown attributable causes.",
+      "population_range": "≤1 (excluding Imperial outposts)",
+      "tithe_grade_range": "Aptus non",
+      "aestimare_range": "G500 – G1000",
+      "aggregate_count_in_galaxy_3e": 200,
+      "examples": ["Istvaan III", "Naogeddon", "Prandium", "Truan IX", "Zhoros", "Luna"],
+      "sources": ["src_wh40k_3e_p115", "lexicanum_dead_world", "fandom_dead_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Grey/black sphere with a single death-mark or ash-cross",
+        "colors": ["ash-grey", "void-black"],
+        "associated_symbol": "Cracked skull, broken aquila",
+        "map_marker_convention": "Hollow grey circle with a slash through it",
+        "wyrmlog_class_glyph": "Dead World — circle with horizontal slash"
+      }
+    },
+    {
+      "id": "cemetery_world",
+      "name": "Cemetery World",
+      "greek_class": "ε",
+      "greek_class_name": "epsilon",
+      "category": "imperial_administered",
+      "description": "Planet whose surface is largely given over to the care of the honoured Imperial dead. May mark the site of a massive battle, or be covered in gigantic mausoleums each dedicated to a noble family. Population is mostly grave-tenders, Sororitas attendants, and Schola Progenium novitiates.",
+      "population_range": "Variable (typically <10,000,000)",
+      "tithe_grade_range": "Solutio Extremis – Solutio Prima",
+      "aestimare_range": "F200 – G500",
+      "examples": ["Certus-Minor", "the Imperial necropolis worlds"],
+      "sources": ["lexicanum_cemetery_world", "fandom_cemetery_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Stylized gravestone or mausoleum silhouette; skull-and-aquila",
+        "colors": ["mourning-black", "alabaster-white"],
+        "associated_symbol": "Imperial Skull, mausoleum cross",
+        "map_marker_convention": "Black-on-white circle with skull silhouette overlay",
+        "wyrmlog_class_glyph": "Cemetery World — circle with grave-cross overlay"
+      }
+    },
+    {
+      "id": "tallow_world",
+      "name": "Tallow World",
+      "greek_class": null,
+      "category": "imperial_administered",
+      "description": "Imperial world dedicated to rendering down dead human bodies from across its local star system into tallow, which is used to manufacture vast quantities of candles that are often exported to Shrine Worlds. A grimdark cousin of Cemetery Worlds — same industry of the honoured dead, but oriented toward extraction rather than veneration.",
+      "population_range": "Variable, often Penal-Legion-staffed",
+      "tithe_grade_range": "Solutio Tertius",
+      "aestimare_range": "F500 – G700",
+      "examples": ["Various unnamed Calixis-tier worlds"],
+      "sources": ["lexicanum_tallow_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Single tall candle with skull-base; rendering-vat silhouette",
+        "colors": ["wax-yellow", "morgue-grey", "tallow-bone"],
+        "associated_symbol": "Ecclesiarchy candle-and-flame, mortuary aquila",
+        "map_marker_convention": "Yellow-cream circle with single candle glyph",
+        "wyrmlog_class_glyph": "Tallow World — circle with tall candle motif"
+      }
+    },
+    {
+      "id": "research_station_world",
+      "name": "Research Station / Research World",
+      "greek_class": "ρ",
+      "greek_class_name": "rho",
+      "category": "imperial_administered",
+      "description": "Imperial world dedicated to scientific study, often a Mechanicus or Inquisitorial project. Population minimal, restricted access, often interdicted from civilian traffic. May overlap with Quarantined or Forbidden Worlds when the research is xenotech or Warp-related.",
+      "population_range": "<100,000 (research personnel + support)",
+      "tithe_grade_range": "Aptus non OR Solutio Extremis",
+      "aestimare_range": "Variable",
+      "examples": ["The Halo Stars research posts", "various Inquisitorial assays"],
+      "sources": ["fandom_research_station", "lexicanum_class_planet"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Stylized telescope, atom, or astronomical chart with a Mechanicus cog frame",
+        "colors": ["voidsman-black", "data-screen green"],
+        "associated_symbol": "Cog Mechanicum + lens; Inquisitorial 'I'",
+        "map_marker_convention": "Cog-ringed observatory glyph; sometimes annotated 'INTERDICTED'",
+        "wyrmlog_class_glyph": "Research Station — small circle with crossed dishes"
+      }
+    },
+    {
+      "id": "cardinal_world",
+      "name": "Cardinal World",
+      "also_known_as": ["Cardinal-World"],
+      "greek_class": "γ[cc]",
+      "category": "ecclesiarchy",
+      "description": "Imperial planet ruled directly by the Adeptus Ministorum and dedicated entirely to worship of the God-Emperor. The Planetary Governor is always a Cardinal of the Ecclesiarchy and often heads the sector's Ecclesiarchy hierarchy. Frequently a pilgrimage destination second only to Holy Terra (e.g., Ophelia VII). Per Lexicanum: 'Cardinal Worlds are also classified as Shrine Worlds that are particularly important centres of the Ecclesiarchy's power.'",
+      "population_range": "Highly variable — often Hive-tier (Ophelia VII)",
+      "tithe_grade_range": "Variable (per Ecclesiarchy concordat)",
+      "aestimare_range": "Variable",
+      "examples": ["Ophelia VII", "Maccabeus Quintus", "San Leor"],
+      "sources": ["lexicanum_cardinal_world", "fandom_cardinal_world"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Tri-spired Ecclesiarchy cathedral; flaming aquila",
+        "colors": ["ecclesiarchal-gold", "blood-red", "pure-white"],
+        "associated_symbol": "Frateris Templar fleur, sacred candle, Sigil of the Ministorum",
+        "map_marker_convention": "Gold-rimmed circle with cathedral or aquila glyph; cross-hatch fill",
+        "wyrmlog_class_glyph": "Cardinal World — circle with cathedral-tower trio"
+      }
+    },
+    {
+      "id": "shrine_world",
+      "name": "Shrine World",
+      "also_known_as": ["Shrineworld", "Cathedral World"],
+      "greek_class": null,
+      "category": "ecclesiarchy",
+      "description": "Imperial world devoted to a Saint of the Imperium, often named in their honour. Studded with cathedrals, temples, and shrines. Frequently directly controlled by the Ecclesiarchy and used as training grounds for the Adeptus Ministorum and Adepta Sororitas. Per Lexicanum, all Shrine Worlds will have a strong connection to a specific saint — birthplace, deathplace, or site of a major deed. Cardinal Worlds are a Shrine-World super-set; the reverse is not true.",
+      "population_range": "Variable, often pilgrim-swollen",
+      "tithe_grade_range": "Variable",
+      "aestimare_range": "Variable",
+      "examples": ["Vraks (pre-rebellion)", "Hagia", "Herodor", "Solemnace"],
+      "sources": ["lexicanum_shrine_world", "fandom_shrine_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Single soaring cathedral spire crowned with aquila; saint's halo",
+        "colors": ["white-marble", "gold-leaf"],
+        "associated_symbol": "Saint's icon, Ecclesiarchy candle, halo aquila",
+        "map_marker_convention": "Plain circle with spire glyph; sometimes a halo-ring around the planet's slot",
+        "wyrmlog_class_glyph": "Shrine World — circle with single spire overlay"
+      }
+    },
+    {
+      "id": "holy_world",
+      "name": "Holy World",
+      "greek_class": null,
+      "category": "ecclesiarchy",
+      "description": "Imperial planet under the jurisdiction of the Imperial Cult, usually combined with other planetary classifications. Typically the birthplace of a saint or a place where a significant battle took place in Imperial history. Per Lexicanum, this is a broader designation than Shrine — a Holy World may host pilgrimage activity without rising to the formal Shrine-World status, or may overlay other classes (Holy Death-World, etc.).",
+      "population_range": "Per primary class",
+      "tithe_grade_range": "Variable",
+      "aestimare_range": "Variable",
+      "examples": ["Many Indomitus-era reclamation worlds"],
+      "sources": ["lexicanum_class_planet"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Halo over base-class glyph; saint's icon corner-mark",
+        "colors": ["ecclesiarchal-gold", "halo-white"],
+        "associated_symbol": "Ecclesiarchy crozius",
+        "map_marker_convention": "Base-class glyph with gold halo overlay"
+      }
+    },
+    {
+      "id": "paradise_world",
+      "name": "Paradise World",
+      "also_known_as": ["Pleasure World", "Garden World"],
+      "greek_class": "γ[cg]",
+      "category": "imperial_settled",
+      "description": "A class of planet characterised by outstanding natural beauty and conditions perfect for human habitation. Little or no industry, low population. Retained in natural state and used as recreational bases for important Imperial servants — Navis Nobilite, Cardinals, Confessors, Planetary Governors, Imperial Commanders, Rogue Traders, wealthy Chartist Captains. 'Pleasure World' is sometimes pejorative (Slaaneshi connotation) but legitimate examples exist. Per FFG: also called Garden Worlds, with minimal technological development and often lower-than-standard Imperial tithes.",
+      "population_range": "<100,000 typically",
+      "tithe_grade_range": "Solutio Tertius typically",
+      "aestimare_range": "Variable",
+      "examples": ["Reth", "Salaman", "Ennos"],
+      "sources": ["lexicanum_paradise_world", "fandom_pleasure_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Stylized palm-frond / leaf wreath; sun-disc",
+        "colors": ["azure-blue", "verdant-green", "sun-gold"],
+        "associated_symbol": "Imperial sun-aquila, garden wreath",
+        "map_marker_convention": "Bright-green or azure planet ring; small leaf glyph",
+        "wyrmlog_class_glyph": "Paradise World — bright circle with leaf overlay"
+      }
+    },
+    {
+      "id": "frontier_world",
+      "name": "Frontier World",
+      "also_known_as": ["Wilderness World"],
+      "greek_class": null,
+      "category": "imperial_settled",
+      "description": "Planet only recently discovered by Mechanicus Explorator fleets or Rogue Traders, home to a relatively small number of Imperial colonists. Administratum may not yet have established planetary government. Often swarming with the violent dregs of humanity — pirates, bandits, outlaws — ruling many areas. Common in the Koronus Expanse and Calixis Sector frontiers.",
+      "population_range": "<1,000,000 typically",
+      "tithe_grade_range": "Solutio Tertius (often unassessed)",
+      "aestimare_range": "Variable",
+      "examples": ["Faldon Kise", "Solace Encarmine", "Footfall (sub-system, RT)", "Damaris (Koronus)"],
+      "sources": ["lexicanum_frontier_world", "fandom_frontier_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Compass-rose or explorator-eye; Rogue Trader Warrant scroll",
+        "colors": ["frontier-dust", "Charter-blue"],
+        "associated_symbol": "Mechanicus Explorator chevron, Rogue Trader Warrant",
+        "map_marker_convention": "Dashed circle (provisional), explorator-eye glyph",
+        "wyrmlog_class_glyph": "Frontier World — dashed-outline circle"
+      }
+    },
+    {
+      "id": "foundling_world",
+      "name": "Foundling World",
+      "greek_class": null,
+      "category": "imperial_lost",
+      "description": "FFG Rogue Trader RPG designation for long-lost human colonies in the Koronus Expanse, some technologically advanced in unique ways, some debased into feralism. The 'Foundling Worlds' is a sub-region of the Expanse populated by these isolated remnants of Imperial / pre-Imperial human civilisation that were stranded when the Warp routes shifted or the Imperium's expansion ebbed.",
+      "population_range": "Variable (often pre-industrial regression)",
+      "tithe_grade_range": "N/A (not formally Imperial)",
+      "aestimare_range": "N/A",
+      "examples": ["Comenina", "various unnamed Heathen Stars worlds"],
+      "sources": ["ffg_rt_lure_of_the_expanse", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Dashed aquila (lost-Imperial); broken Charter scroll",
+        "colors": ["faded-bone", "lost-grey"],
+        "associated_symbol": "Pre-Imperial human glyph, faded aquila",
+        "map_marker_convention": "Dashed circle with question-mark or '?' overlay",
+        "wyrmlog_class_glyph": "Foundling World — dashed circle with broken-aquila mark"
+      }
+    },
+    {
+      "id": "knight_world",
+      "name": "Knight World",
+      "greek_class": null,
+      "category": "imperial_settled",
+      "description": "Human-settled, technologically-advanced planet home to the powerful walker-knights piloted by the noble houses of the Imperial Knights. Allied with the Imperium directly and often part of the demesne of the Adeptus Mechanicus (Questor Mechanicus) or sworn directly to the Imperium (Questor Imperialis). Almost universally maintain feudal cultures reminiscent of Terran Middle Ages, with Knight Houses bound by oaths of fealty.",
+      "population_range": "Variable",
+      "tithe_grade_range": "Variable (per Knightly Compact)",
+      "aestimare_range": "Variable",
+      "examples": ["House Terryn's Voltoris", "Cadmus", "Krastellan", "Adrastapol"],
+      "sources": ["lexicanum_knight_world", "fandom_knight_world"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Helmed knight-pilot heraldry; specific House crest; ion-shield wreath",
+        "colors": ["heraldic-blue", "heraldic-red", "gilded-gold"],
+        "associated_symbol": "Imperial Knight head-silhouette; Questor Imperialis/Mechanicus oath-scroll",
+        "map_marker_convention": "Heraldic shield overlay on planet glyph",
+        "wyrmlog_class_glyph": "Knight World — circle with heraldic shield"
+      }
+    },
+    {
+      "id": "fortress_world",
+      "name": "Fortress World",
+      "greek_class": null,
+      "category": "imperial_militant",
+      "description": "Imperial planet where the entire populace is purposefully built around warfare — a bastion against some specific threat. Often the entire surface is one continuous fortification (e.g., Cadia). May serve as a Chapter Homeworld, a Crusade staging-ground, or a strategic chokepoint.",
+      "population_range": "Variable",
+      "tithe_grade_range": "Aptus non (defensive exemption) – Exactis Prima",
+      "aestimare_range": "Variable",
+      "examples": ["Cadia (destroyed)", "Vraks (post-rebellion)", "Mordian"],
+      "sources": ["lexicanum_fortress_world", "fandom_fortress_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Crossed bolters or crenelated fortress wall; armoured aquila",
+        "colors": ["Cadian-grey", "gunmetal-black"],
+        "associated_symbol": "Cadian gate-aquila, fortress crenellation, crossed bolters",
+        "map_marker_convention": "Black filled circle ringed with crenelation tick-marks",
+        "wyrmlog_class_glyph": "Fortress World — circle with crenelated battlement ring"
+      }
+    },
+    {
+      "id": "sentinel_world",
+      "name": "Sentinel World",
+      "also_known_as": ["Bastion World"],
+      "greek_class": null,
+      "category": "imperial_militant",
+      "description": "Era Indomitus designation introduced by Lord Commander Guilliman following the Great Rift. Sentinel Worlds serve as inviolable bulwarks of the Emperor's order within Imperium Nihilus (the dark half of the Imperium beyond the Great Rift), holding the line against Chaos incursions, xenos raids, and isolated Imperium-Nihilus refugee influxes. Often heavily garrisoned and supported by Astartes Chapter presence.",
+      "population_range": "Variable, often heavily militant",
+      "tithe_grade_range": "Aptus non OR per Indomitus Crusade allowance",
+      "aestimare_range": "Variable",
+      "examples": ["Various Imperium-Nihilus bastion systems"],
+      "sources": ["lexicanum_sentinel_world", "fandom_sentinel_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Indomitus aquila with sentinel-watch torch; Custodes spear",
+        "colors": ["Imperium-Nihilus dark-blue", "Indomitus gold"],
+        "associated_symbol": "Indomitus Crusade laurel, Sentinel-watch torch",
+        "map_marker_convention": "Bold-outlined circle with golden ward-aquila",
+        "wyrmlog_class_glyph": "Sentinel World — circle with watch-tower"
+      }
+    },
+    {
+      "id": "penal_world",
+      "name": "Penal World",
+      "greek_class": null,
+      "category": "imperial_administered",
+      "description": "Imperial military prison planet. Population entirely criminals drawn from hundreds of worlds. Barren, barely-habitable terrain by design. Military formations (Penal Legions) are raised from the prison population for service in Astra Militarum regiments as expendable troops, who might earn redemption — though terms of service are usually for life.",
+      "population_range": "Variable",
+      "tithe_grade_range": "Aptus non OR human-tithe (Penal Legion recruits)",
+      "aestimare_range": "G300 – G900",
+      "examples": ["Iotan Gamma", "Sevren Hive", "Vraks (pre-rebellion was penal-armory)"],
+      "sources": ["lexicanum_penal_world", "fandom_penal_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Broken chains, branded-skull, Penal Legion shackle",
+        "colors": ["rust-iron", "prison-black"],
+        "associated_symbol": "Penal Legion chevron, branded-Π glyph, broken chain",
+        "map_marker_convention": "Chained-circle glyph",
+        "wyrmlog_class_glyph": "Penal World — circle wrapped with chain"
+      }
+    },
+    {
+      "id": "penitent_world",
+      "name": "Penitent World",
+      "greek_class": null,
+      "category": "imperial_administered",
+      "description": "Harsh, deadly Imperial planet where those seeking repentance go to dwell. Distinct from Penal Worlds — Penitent Worlds are populated by volunteer sin-bearers undergoing eternal redemption (the canonical example is the Death Korps of Krieg, whose entire culture is one of permanent collective atonement for an ancient act of treachery).",
+      "population_range": "Variable",
+      "tithe_grade_range": "Solutio Extremis – Exactis Prima",
+      "aestimare_range": "Variable",
+      "examples": ["Krieg", "Salem Proctor"],
+      "sources": ["lexicanum_penitent_world", "fandom_penitents"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Skull mask + gas-rebreather; ash-cross",
+        "colors": ["ash-grey", "penitent-black"],
+        "associated_symbol": "Penitent skull-mask, ash-cross flagellant whip",
+        "map_marker_convention": "Black circle with ash-cross overlay",
+        "wyrmlog_class_glyph": "Penitent World — circle with ash-cross"
+      }
+    },
+    {
+      "id": "schola_progenium_world",
+      "name": "Schola Progenium World",
+      "greek_class": null,
+      "category": "imperial_administered",
+      "description": "Imperial world that hosts a Schola Progenium facility — fortress-orphanages where the children of Imperial servants killed in the Emperor's service are raised into Adeptus Ministorum, Administratum, Adeptus Arbites, Commissariat, Adepta Sororitas, Inquisition, or Stormtrooper / Tempestus Scion service. Schola facilities are built like fortresses with battlements facing inwards; the world usually has strong ties to Terra or the Adeptus Ministorum.",
+      "population_range": "Variable (Schola plus civilian population)",
+      "tithe_grade_range": "Per primary class plus the Schola population",
+      "aestimare_range": "Variable",
+      "examples": ["Various Imperial worlds host a Schola"],
+      "sources": ["lexicanum_schola_progenium", "fandom_schola_progenium"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Schola Progenium aquila with crossed batons; Tempestus Scion icon",
+        "colors": ["schola-bone", "Tempestus-black"],
+        "associated_symbol": "Schola crest, Tempestus lightning glyph",
+        "map_marker_convention": "Black circle with Schola-aquila overlay"
+      }
+    },
+    {
+      "id": "quarantined_world",
+      "name": "Quarantined World",
+      "also_known_as": ["Forbidden World", "Interdicted World"],
+      "greek_class": null,
+      "category": "interdicted",
+      "description": "Imperial classification for planets too dangerous to settle or explore but too valuable to destroy or ignore. Placed under strict quarantine by the Administratum or Inquisition; sometimes blockaded to ensure nothing may enter or leave. Causes: pathogens, Warp contamination, xenos cysts, Genestealer infestation suspicion, dangerous indigenous creatures, classified Mechanicus archaeology.",
+      "population_range": "Sealed off",
+      "tithe_grade_range": "Aptus non",
+      "aestimare_range": "N/A",
+      "examples": ["Cthelmax (Inquisitorial)", "specific named Calixis interdiction worlds"],
+      "sources": ["lexicanum_quarantined_world", "fandom_forbidden_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Inquisitorial 'I' with bar across; cordon-tape glyph",
+        "colors": ["interdiction-red", "warning-yellow"],
+        "associated_symbol": "Inquisitorial Holy Order seal, blockade-cordon banner",
+        "map_marker_convention": "Red dashed circle around planet glyph; 'INTERDICTED' label",
+        "wyrmlog_class_glyph": "Quarantined World — circle barred with diagonal red strike-through"
+      }
+    },
+    {
+      "id": "derelict_world",
+      "name": "Derelict World",
+      "greek_class": null,
+      "category": "imperial_lost",
+      "description": "Worlds that have been scoured by war or disaster and have not been seized by a new galactic power. In time, many are simply lost to the void. Distinct from Dead Worlds (which are uninhabitable from cause); Derelict Worlds may be inhabitable in principle but lack any organized power claiming them. Common scavenger targets for Rogue Traders, pirates, and Mechanicus Explorators.",
+      "population_range": "Often near-zero (scattered survivors, scavengers)",
+      "tithe_grade_range": "N/A (unclaimed)",
+      "aestimare_range": "G500 – G900",
+      "examples": ["Various Calixis post-war hulks", "Cinerary Worlds of Koronus"],
+      "sources": ["lexicanum_derelict_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Broken ringed sphere; salvage-arrow",
+        "colors": ["dust-brown", "abandoned-grey"],
+        "associated_symbol": "Scavenger-aquila, Mechanicus Explorator eye",
+        "map_marker_convention": "Hollow circle with crack motif"
+      }
+    },
+    {
+      "id": "mining_world",
+      "name": "Mining World",
+      "also_known_as": ["Mineral World"],
+      "greek_class": "γ[cm]",
+      "category": "imperial_settled",
+      "description": "Imperial planet whose entire industry is the extraction of metallic ore, rock, minerals, or other useful substances. Often a Civilised-World sub-class but can stand alone. Population may be slaves, penal workers, or low-tier Imperial proletariat. Many are inhospitable — toxic atmospheres, low gravity, no breathable air; workers live in pressurized arcologies or void-suits.",
+      "population_range": "Variable",
+      "tithe_grade_range": "Exactis Prima – Decuma Particular",
+      "aestimare_range": "B400 – D900",
+      "examples": ["Klaha", "Acreage", "Olskerry", "Sepheris Secundus (Calixis)"],
+      "sources": ["lexicanum_mining_world", "fandom_mining_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Crossed pickaxes or mineral-ore chevron",
+        "colors": ["mineral-bronze", "carbon-black"],
+        "associated_symbol": "Mechanicus mining-rig sigil, ore-bar stamp",
+        "map_marker_convention": "Brown-ringed planet glyph; pickaxe overlay",
+        "wyrmlog_class_glyph": "Mining World — circle with pick/shovel crossed"
+      }
+    },
+    {
+      "id": "war_world",
+      "name": "War World",
+      "greek_class": null,
+      "category": "transient",
+      "description": "Not a permanent classification but a designation applied to any planet currently caught in an active war zone. Imperial Crusades can envelop dozens of star systems and hundreds of worlds; planet-wide battles with orbital bombardment and artillery can rage for solar decades. War World status is removed when hostilities cease — or the world is reclassified as Dead World after Exterminatus.",
+      "population_range": "Variable (often plummeting)",
+      "tithe_grade_range": "Suspended",
+      "aestimare_range": "Suspended",
+      "examples": ["Armageddon (3 Wars)", "Vraks (during the siege)", "any Black Crusade target"],
+      "sources": ["fandom_war_world", "lexicanum_class_planet"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Crossed las/bolter; war-banner with skull",
+        "colors": ["war-red", "smoke-black"],
+        "associated_symbol": "Crusader cross, war-aquila",
+        "map_marker_convention": "Red exterior glow; crossed-weapons overlay",
+        "wyrmlog_class_glyph": "War World — circle with red flame-corona"
+      }
+    },
+    {
+      "id": "capital_world",
+      "name": "Capital World",
+      "greek_class": null,
+      "category": "imperial_administered",
+      "description": "Imperial planet that is the capital of its star System — the seat of System Governance. Distinct from Sector Capital (the seat of Sector Lord) and from Throne World (Terra-tier). Almost always also Civilized, Hive, Industrial, or Cardinal class, with Capital World as an administrative overlay.",
+      "population_range": "Per base class",
+      "tithe_grade_range": "Per base class",
+      "aestimare_range": "Per base class",
+      "examples": ["Scintilla (Capital + Sector Capital + Hive)"],
+      "sources": ["lexicanum_capital_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Crown-and-aquila over base-class glyph",
+        "colors": ["Imperial gold", "purple"],
+        "associated_symbol": "Senatorum aquila, governor's crown",
+        "map_marker_convention": "Star-burst around base-class glyph"
+      }
+    },
+    {
+      "id": "sector_capital",
+      "name": "Sector Capital",
+      "greek_class": "[sc]",
+      "category": "imperial_administered",
+      "description": "Imperial classification abbreviated [sc] in Lexicanum's sector-classification notation. The seat of a Sector Lord and the political-military heart of a sector. Almost always a Hive World or extremely wealthy Civilized World. Houses the Lord Sector's administration, sector-level Inquisition presence (often a Tricorn-style palace), and major fleet anchorage.",
+      "population_range": "Hive-tier typically",
+      "tithe_grade_range": "Per base class",
+      "aestimare_range": "A50 – B200",
+      "examples": ["Scintilla (Calixis)", "Cypra Mundi (Segmentum Obscurus)"],
+      "sources": ["lexicanum_capital_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Senatorum aquila with sector-cluster of stars",
+        "colors": ["Imperial gold", "sector-livery colour"],
+        "associated_symbol": "Senatorum Imperialis aquila, Lord Sector's heraldry",
+        "map_marker_convention": "Large gold star at sector-map centre"
+      }
+    },
+    {
+      "id": "throne_world",
+      "name": "Throne World",
+      "greek_class": null,
+      "category": "imperial_administered",
+      "description": "The seat of the Emperor of Mankind. Only one canonical example: Holy Terra, the Throne World of the Emperor. Terra is simultaneously Hive World, Cardinal World, Throne World, and Holy World, with each designation overlaying the others. Imperial state cartography reserves a unique iconography for Terra.",
+      "population_range": "Trillions (Hive-tier across the whole planet)",
+      "tithe_grade_range": "Aptus non (the Emperor cannot tithe Himself)",
+      "aestimare_range": "A1 (theoretical maximum)",
+      "examples": ["Holy Terra"],
+      "sources": ["lexicanum_terra", "fandom_terra"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Golden Throne over double-headed aquila with full sun-burst halo",
+        "colors": ["Imperial purple", "throne-gold", "imperial-white"],
+        "associated_symbol": "Crowned skull (Emperor's mortality), Golden Throne",
+        "map_marker_convention": "Central gold sun-disc; reserved exclusively for Terra"
+      }
+    },
+    {
+      "id": "artificial_world",
+      "name": "Artificial World",
+      "greek_class": null,
+      "category": "imperial_constructed",
+      "description": "Classification given to the Imperium's many orbital stations, asteroidal emplacements, and other constructed facilities — including listening posts, research laboratories, military space stations, and doomsday bastions. Considered Imperial planets but of non-natural origin. Notably, Artificial Worlds can have large populations and can contribute regiments to the Astra Militarum.",
+      "population_range": "Variable; can reach hundreds of millions on the largest",
+      "tithe_grade_range": "Variable, often Decuma Particular for large stations",
+      "aestimare_range": "Variable",
+      "examples": ["Phalanx (Imperial Fists battle-barge fortress)", "Port Wander", "Footfall (semi-artificial)", "various Mechanicus listening posts"],
+      "sources": ["lexicanum_artificial_world", "fandom_artificial_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Stylized space-station ring or octahedron; Mechanicus cog frame",
+        "colors": ["voidsman-black", "Navy-blue"],
+        "associated_symbol": "Battlefleet aquila, Mechanicus cog (for Mechanicus stations)",
+        "map_marker_convention": "Diamond / lozenge marker rather than circle (per Wyrmlog convention for non-planet bodies)",
+        "wyrmlog_class_glyph": "Artificial World — lozenge with structure-glyph"
+      }
+    },
+    {
+      "id": "astartes_homeworld",
+      "name": "Adeptus Astartes Homeworld",
+      "also_known_as": ["Chapter Homeworld", "Chapter Planet", "Space Marine Homeworld"],
+      "greek_class": null,
+      "category": "astartes",
+      "description": "Imperial classification for a planet that serves as the base for a Space Marine Chapter's fortress-monastery. For some Chapters it is also the sole recruiting world; others draw recruits from several. Chapter Homeworlds enjoy a unique semi-autonomous status — they are not under direct Administratum control but answer to the Chapter Master. May themselves be Hive, Death, Feral, Feudal, or even Knight Worlds depending on the Chapter's cultural inheritance.",
+      "population_range": "Variable per underlying type",
+      "tithe_grade_range": "Aptus non (Chapter recruits in lieu)",
+      "aestimare_range": "Variable",
+      "examples": ["Macragge (Ultramarines)", "Fenris (Space Wolves)", "Nocturne (Salamanders)", "Baal (Blood Angels)", "Caliban (Dark Angels, destroyed)", "Sortiarius (Thousand Sons, pre-fall)"],
+      "sources": ["lexicanum_adeptus_astartes_homeworld", "fandom_space_marine_chapter_homeworld"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Chapter-specific heraldic icon (per `insignia-heraldry.md`)",
+        "colors": ["Chapter-specific livery"],
+        "associated_symbol": "Chapter symbol always present; Astartes-Imperial double aquila",
+        "map_marker_convention": "Heavy bold ring around planet glyph; Chapter icon overlay",
+        "wyrmlog_class_glyph": "Astartes Homeworld — circle with Chapter-icon centre"
+      }
+    },
+    {
+      "id": "astartes_recruiting_world",
+      "name": "Adeptus Astartes Recruiting World",
+      "greek_class": null,
+      "category": "astartes",
+      "description": "World that serves as a source of Aspirants for Space Marine Chapters or Legions. Distinct from Astartes Homeworld — a Recruiting World does not host the Chapter's fortress-monastery but supplies its candidate aspirants. A single Chapter may draw from multiple Recruiting Worlds; conversely, a Recruiting World may supply multiple Chapters. The world's underlying class (Death, Feral, Hive, etc.) is preserved.",
+      "population_range": "Per base class",
+      "tithe_grade_range": "Per base class minus aspirant-tithe",
+      "aestimare_range": "Variable",
+      "examples": ["Cthonia (pre-fall — Sons of Horus recruits)", "various Calixis worlds supplying Salamanders/Imperial Fists"],
+      "sources": ["lexicanum_adeptus_astartes_recruiting_world", "fandom_chapter_recruiting"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Chapter symbol over base-class glyph; smaller and as overlay",
+        "colors": ["Chapter livery"],
+        "associated_symbol": "Aspirant glyph (often a crossed Astartes pauldron-and-helm)",
+        "map_marker_convention": "Base-class glyph with small Chapter mark in corner"
+      }
+    },
+    {
+      "id": "astartes_fief_world",
+      "name": "Adeptus Astartes Fief World",
+      "greek_class": null,
+      "category": "astartes",
+      "description": "World that is part of the domain of a Space Marine Chapter or Legion, providing various services such as resources, recruits, or supplies. Distinct from Homeworld and Recruiting World — a Fief World is a feudal subordinate that pays its tithe in the form of materiel rather than Aspirants. During the Great Crusade and Horus Heresy, Fief Worlds raised Solar Auxilia Regiments for the Space Marine Legions.",
+      "population_range": "Per base class",
+      "tithe_grade_range": "Per Chapter compact (often materiel-only)",
+      "aestimare_range": "Variable",
+      "examples": ["Various Ultramar sub-worlds (Ultramarines)"],
+      "sources": ["lexicanum_adeptus_astartes_fief_world", "fandom_chapter_fief"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Chapter symbol with feudal coronet over base-class glyph",
+        "colors": ["Chapter livery"],
+        "associated_symbol": "Chapter-fief compact-scroll",
+        "map_marker_convention": "Base-class glyph with Chapter mark and small fief-coronet"
+      }
+    },
+    {
+      "id": "astartes_breeding_world",
+      "name": "Adeptus Astartes Breeding World",
+      "greek_class": null,
+      "category": "astartes",
+      "description": "An Astartes Recruiting World deliberately populated by a Space Marine Chapter with the strongest and healthiest Human specimens it can find from other worlds. Established when Chapters cannot reliably recruit Aspirants due to scarcity or distance from their Astartes Homeworlds. Once established, the population is tasked with giving birth to future generations of Aspirants. A grim, eugenicist designation.",
+      "population_range": "Variable, controlled growth",
+      "tithe_grade_range": "Aptus non (population-as-tithe)",
+      "aestimare_range": "Variable",
+      "examples": ["Various uncited Chapter holdings"],
+      "sources": ["lexicanum_adeptus_astartes_breeding_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Chapter symbol with double-bound chevron (denoting breeding lineage)",
+        "colors": ["Chapter livery"],
+        "associated_symbol": "Chapter eugenic glyph",
+        "map_marker_convention": "Base-class glyph with Chapter mark and lineage-chevron"
+      }
+    },
+    {
+      "id": "heretic_astartes_fief_world",
+      "name": "Heretic Astartes Fief World",
+      "greek_class": null,
+      "category": "chaos",
+      "description": "Chaos Marine equivalent of Astartes Fief World — a planet (often Daemon or Crone World) that is part of the domain of a Chaos Space Marine warband or Traitor Legion. Provides materiel, slaves, and corrupted human aspirants for the warband's continued operation. The world is invariably Excommunicate Traitoris.",
+      "population_range": "Variable",
+      "tithe_grade_range": "N/A (Excommunicate)",
+      "aestimare_range": "N/A",
+      "examples": ["Medrengard (Iron Warriors)", "Plague Planet (Death Guard)"],
+      "sources": ["lexicanum_heretic_astartes_fief_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Traitor Legion mark over warp-twisted base-class glyph",
+        "colors": ["Traitor Legion livery + Chaos black"],
+        "associated_symbol": "Eight-pointed Chaos Star + Traitor Legion mark",
+        "map_marker_convention": "Base-class glyph with Traitor Legion mark and Chaos-star overlay"
+      }
+    },
+    {
+      "id": "heretic_astartes_recruiting_world",
+      "name": "Heretic Astartes Recruiting World",
+      "greek_class": null,
+      "category": "chaos",
+      "description": "Chaos Marine equivalent of Astartes Recruiting World — a planet (often Foundling or feral) that supplies corrupted aspirants for a Chaos Space Marine warband or Traitor Legion. Cthonia, before its destruction in the Heresy, was the Sons of Horus / Luna Wolves' recruiting world. Modern examples are often Excommunicate Traitoris worlds in the Eye of Terror or its periphery.",
+      "population_range": "Variable",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Various Eye-of-Terror periphery feral worlds"],
+      "sources": ["lexicanum_heretic_astartes_recruiting_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Traitor mark over feral-world glyph",
+        "colors": ["Chaos-black + Traitor Legion livery"],
+        "associated_symbol": "Chaos Star + corrupted aspirant glyph",
+        "map_marker_convention": "Base-class glyph with Chaos-corruption overlay"
+      }
+    },
+    {
+      "id": "tomb_world",
+      "name": "Tomb World",
+      "greek_class": null,
+      "category": "necron",
+      "description": "Planet where the Necron dynasties chose to slumber during the Great Sleep, over 60 million standard years ago. Specially-prepared catacombs and tombs lie deep beneath the surface; from the outside, often appears as a Dead World, Desert World, or barren rocky planet. Many Tomb Worlds are currently settled by the Imperium with their inhabitants utterly unaware of what lies below. Awakening is gradual and often catastrophic. Imperial maps mark known Tomb Worlds in red (per Lexicanum).",
+      "population_range": "Necron dynasty + (any surface inhabitants)",
+      "tithe_grade_range": "N/A (Imperial classification only on detection)",
+      "aestimare_range": "N/A",
+      "examples": ["Sanctuary 101", "Mandragora (Sautekh dynasty)", "Solemnace (Nihilakh)", "Damnos"],
+      "sources": ["lexicanum_tomb_world", "fandom_tomb_world"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Necron dynasty cartouche (Egyptian-style); ankh-and-crook with green glow",
+        "colors": ["necron-green (#00FF00 desaturated)", "tomb-grey"],
+        "associated_symbol": "Triarch ankh, dynastic cartouche",
+        "map_marker_convention": "Imperial maps mark Tomb Worlds in red on detection (per Lexicanum). Sealed Tomb Worlds appear as Dead Worlds until awakened.",
+        "wyrmlog_class_glyph": "Tomb World — circle with green inner glow; dynasty-glyph variant"
+      }
+    },
+    {
+      "id": "crownworld",
+      "name": "Crownworld",
+      "also_known_as": ["Necron Crownworld"],
+      "greek_class": null,
+      "category": "necron",
+      "description": "Most important class of Necron-held planet — oldest and proudest of all Necron worlds, the sites from which their dynasties and planetary clusters are governed. Per Necron canon, the Crownworld of a dynasty is the seat of the Phaeron (dynastic ruler) and houses the most elaborate tomb complexes, the dynasty's archives, and its principal Cryptek conclaves. Awakened Crownworlds command Coreworlds and Fringeworlds across multiple star systems.",
+      "population_range": "Full dynasty population on awakening",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Mandragora (Sautekh)", "Solemnace (Nihilakh)", "Suhbekhar (Novokh)", "Thanatos (Maynarkh)"],
+      "sources": ["fandom_tomb_world", "lexicanum_necron_dynasty"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Dynasty cartouche with sun-disc crown; ankh + crook + flail",
+        "colors": ["dynasty-specific (Sautekh silver-green, Nihilakh turquoise-gold, Novokh red-gold)"],
+        "associated_symbol": "Dynasty seal, Phaeron's personal cartouche",
+        "map_marker_convention": "Large gold-bordered cartouche; sun-disc accent",
+        "wyrmlog_class_glyph": "Crownworld — circle with crown-and-cartouche"
+      }
+    },
+    {
+      "id": "coreworld",
+      "name": "Coreworld",
+      "also_known_as": ["Necron Coreworld"],
+      "greek_class": null,
+      "category": "necron",
+      "description": "Next in importance after the Crownworld for any Necron Dynasty. Planets which together form the heart of a dynasty's interstellar territory. Neither so majestic nor so mighty as Crownworlds but great powers in their own right; in their heyday they hosted significant Cryptek conclaves and Triarch praetorian garrisons. Barring disaster, are so again in the late 41st Millennium.",
+      "population_range": "Significant dynasty population",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Various dynasty-sub-capital worlds"],
+      "sources": ["fandom_tomb_world", "lexicanum_necron_dynasty"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Dynasty cartouche with secondary-rank crown",
+        "colors": ["dynasty-specific, mid-tone"],
+        "associated_symbol": "Dynasty seal, lesser-Lord cartouche",
+        "map_marker_convention": "Mid-bordered cartouche"
+      }
+    },
+    {
+      "id": "fringeworld",
+      "name": "Fringeworld",
+      "also_known_as": ["Necron Fringeworld"],
+      "greek_class": null,
+      "category": "necron",
+      "description": "Planets of tertiary importance to their ruling Necron Dynasty, not viewed as being of high-enough status to be numbered amongst Coreworlds. Fringeworlds were often poor or distant colonies of a dynasty, able to contribute to the wider realm only in terms of manual labour or as a location for penal institutions. May contain less-prestigious tomb complexes with lesser Necron Lords or Crypteks.",
+      "population_range": "Modest dynasty contingent",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Various dynasty-periphery worlds"],
+      "sources": ["fandom_tomb_world", "lexicanum_necron_dynasty"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Dynasty cartouche, lesser-rank, simple frame",
+        "colors": ["dynasty-specific, muted"],
+        "associated_symbol": "Dynasty mark, minor cartouche",
+        "map_marker_convention": "Small cartouche with simple frame"
+      }
+    },
+    {
+      "id": "pylon_world",
+      "name": "Pylon World",
+      "greek_class": null,
+      "category": "necron",
+      "description": "Planet bearing significant Necron pylon installations — monumental constructions of Necron origin that hold back significant overlap between the Warp and realspace. The form and number of pylons varies per world but their function is the same: to keep the Warp at bay or to manipulate galactic gravitic/psychic phenomena. The destruction of the Cadian pylon network during the 13th Black Crusade contributed to the formation of the Great Rift. Cadia was the most famous Pylon World; its loss devastated the Imperium.",
+      "population_range": "Per base class (Pylon-World is an overlay)",
+      "tithe_grade_range": "Per base class",
+      "aestimare_range": "Per base class",
+      "examples": ["Cadia (destroyed M42)", "various uncited Necron-watched worlds"],
+      "sources": ["lexicanum_necron_pylon", "fandom_pylon"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Necron pylon obelisk-silhouette overlay on base-class glyph",
+        "colors": ["pylon-bronze", "necron-green accent"],
+        "associated_symbol": "Necron geometric rune",
+        "map_marker_convention": "Base-class glyph with vertical-obelisk overlay"
+      }
+    },
+    {
+      "id": "maiden_world",
+      "name": "Maiden World",
+      "also_known_as": ["Lilaethan (Aeldari)"],
+      "greek_class": null,
+      "category": "aeldari",
+      "description": "Lush paradise world originally terraformed by the Aeldari from a lifeless Dead World before the Fall (M30). Aeldari seeded barren planets with engineered life that gradually transformed them into life-supporting paradises rich in resources and safe from many illnesses. Most Maiden Worlds in the modern era are home to Aeldari Exodites, who follow megadon herds across grassy plains and have eschewed most of their former technology — though they remain able to use Craftworld tech when needed. The Aeldari consider Maiden Worlds sacred and react with hostility when humans attempt to settle them.",
+      "population_range": "Exodite tribes typically; rarely human",
+      "tithe_grade_range": "N/A (Imperially unsettled or Exodite-held)",
+      "aestimare_range": "N/A",
+      "examples": ["Lugganath's domains", "many in the Eastern Fringe"],
+      "sources": ["lexicanum_maiden_world", "fandom_maiden_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Aeldari rune for 'Maiden' (lilaethan); stylized flower-spiral",
+        "colors": ["jade-green", "Aeldari-blue", "twin-moon-silver"],
+        "associated_symbol": "Aeldari rune-cluster, dragon-rider Exodite glyph",
+        "map_marker_convention": "Bright-green glow; Aeldari rune overlay (often noted only on Exodite maps, not Imperial)",
+        "wyrmlog_class_glyph": "Maiden World — circle with Aeldari spiral rune"
+      }
+    },
+    {
+      "id": "exodite_world",
+      "name": "Exodite World",
+      "greek_class": null,
+      "category": "aeldari",
+      "description": "Subset of Maiden Worlds currently home to Aeldari Exodites — Aeldari who fled the doomed Aeldari Empire before the Fall, abandoning the hedonistic excesses that would birth Slaanesh. They live agrarian-pastoral lives, riding 'dragons' (megasaurs), and maintain Wraithbone Worldshrines that preserve their dead. Often surprisingly tolerant of (un-aggressive) outsiders. Exodites are usually quite savage and build few settlements, many temporary.",
+      "population_range": "Tribal-pastoral",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Athaim (canonical)", "Bethalmae"],
+      "sources": ["lexicanum_exodite_world", "fandom_exodite_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Dragon-rider silhouette over circular sun-disc",
+        "colors": ["green-meadow", "sky-blue"],
+        "associated_symbol": "Wraithbone shrine-spire, dragon-rider rune",
+        "map_marker_convention": "Aeldari rune marker; rarely on Imperial maps",
+        "wyrmlog_class_glyph": "Exodite World — Aeldari rune variant of Maiden"
+      }
+    },
+    {
+      "id": "craftworld",
+      "name": "Craftworld",
+      "greek_class": null,
+      "category": "aeldari",
+      "description": "Not a planet at all but a vast Aeldari starship-city — the mobile homeworlds of the Asuryani Aeldari, capable of traversing Warp tunnels along the Webway. The largest craftworlds (Ulthwé, Biel-Tan, Saim-Hann, Iyanden, Alaitoc) carry millions of Aeldari plus their Infinity Circuits storing the souls of dead Aeldari. Treated as worlds in Imperial cartography because they are stable mobile centres of Aeldari civilisation.",
+      "population_range": "Millions per Craftworld",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Ulthwé", "Biel-Tan", "Saim-Hann", "Iyanden", "Alaitoc", "Lugganath", "Yme-Loc", "Mymeara", "Altansar (returned)"],
+      "sources": ["fandom_craftworld", "warhammer40k_lore_skill_factions"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Stylized Craftworld silhouette (cone-on-disc); per-Craftworld rune (e.g., Ulthwé eye-and-sun, Biel-Tan flower)",
+        "colors": ["per-Craftworld livery — Ulthwé black, Biel-Tan green, Saim-Hann red, Iyanden yellow-bone, Alaitoc blue"],
+        "associated_symbol": "Per-Craftworld Asuryani rune; wraithbone-spine icon",
+        "map_marker_convention": "Lozenge/diamond marker rather than circle (movable, non-planet)",
+        "wyrmlog_class_glyph": "Craftworld — lozenge with Craftworld-rune centre"
+      }
+    },
+    {
+      "id": "crone_world",
+      "name": "Crone World",
+      "greek_class": null,
+      "category": "aeldari_chaos",
+      "description": "The original homeworlds first colonised by the Aeldari as they rose to power. The Crone Worlds formed the heart of the lost Aeldari Empire before they were consumed by the creation of the vast Warp rift called the Eye of Terror following the birth of Slaanesh. They were horrifically altered into Daemon-haunted nightmare realms when overwhelmed by the Eye during the Fall. Synonymous with Daemon Worlds in current canon but with the additional sense of 'fallen Aeldari heritage.' Aeldari occasionally raid Crone Worlds to recover Spirit Stones, lost artefacts, and trapped ancestor-souls.",
+      "population_range": "Daemonic + trapped souls",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Pre-Fall Aeldari homeworlds, now consumed in the Eye of Terror"],
+      "sources": ["lexicanum_crone_world", "fandom_crone_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Aeldari rune corrupted by Slaaneshi barbed-arrow",
+        "colors": ["pre-Fall Aeldari opaline + Slaaneshi pink-violet"],
+        "associated_symbol": "Aeldari rune cracked through with Chaos-star",
+        "map_marker_convention": "Eye-of-Terror region only; marked in Slaaneshi purple",
+        "wyrmlog_class_glyph": "Crone World — Aeldari rune within Chaos star"
+      }
+    },
+    {
+      "id": "daemon_world",
+      "name": "Daemon World",
+      "greek_class": null,
+      "category": "chaos",
+      "description": "Planet twisted and corrupted by the power of Chaos and the Warp from being trapped in a prolonged warp rift. Daemon Worlds are not bound by the laws of physics but by the whim of daemonic rulers and the emotions of mortals. Usually ruled by a Daemon Prince, who can shape the world to his liking. Each is a bizarre sub-reality. Many Daemon Worlds are former Crone Worlds (the Aeldari homeworlds before the Fall); others are post-Heresy fortress-strongholds of the Traitor Legions.",
+      "population_range": "Daemonic + cultist populations",
+      "tithe_grade_range": "N/A (Excommunicate Traitoris)",
+      "aestimare_range": "N/A",
+      "examples": ["Medrengard (Iron Warriors)", "Sicarus (Word Bearers)", "Plague Planet (Death Guard)", "Sortiarius / Planet of the Sorcerers (Thousand Sons)", "Skalathrax (World Eaters)"],
+      "sources": ["lexicanum_daemon_world", "fandom_daemon_world"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Eight-pointed Star of Chaos undivided; OR specific god-mark (Khorne skull, Nurgle trefoil, Slaanesh barbed-arrow, Tzeentch nine-pointed star)",
+        "colors": ["Chaos-undivided black; per-god — Khorne red, Nurgle green, Slaanesh purple/pink, Tzeentch blue/gold"],
+        "associated_symbol": "Star of Chaos; per-god patron mark",
+        "map_marker_convention": "Imperial maps mark Daemon Worlds in violet or eight-pointed-star black; Inquisitorial 'Hereticus Extremis' seal",
+        "wyrmlog_class_glyph": "Daemon World — circle with 8-pointed Chaos star centre"
+      }
+    },
+    {
+      "id": "plague_planet",
+      "name": "Plague Planet",
+      "greek_class": null,
+      "category": "chaos",
+      "category_note": "specific named instance of daemon_world (Nurglite sub-class)",
+      "description": "The Daemon World of the Daemon Prince Mortarion, homeworld of the Death Guard Traitor Legion. Located within the Eye of Terror, it is a world where constant disease is the norm, diseased mortal inhabitants praying to Nurgle for relief from constant agony. Used as the type-specimen of a Nurglite Daemon World; analogous Daemon Worlds dedicated to specific Chaos Gods include Skalathrax (Khorne, World Eaters), Sortiarius (Tzeentch, Thousand Sons), and various Slaaneshi-dedicated Daemon Worlds.",
+      "population_range": "Daemonic + plague-cultist populations",
+      "tithe_grade_range": "N/A (Excommunicate Traitoris)",
+      "aestimare_range": "N/A",
+      "examples": ["Plague Planet (Mortarion's seat)", "Skalathrax (Khornate analog)", "Sortiarius (Tzeentchian analog)"],
+      "sources": ["lexicanum_plague_planet", "fandom_plague_planet"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Nurgle trefoil with central diseased eye; Mortarion's scythe",
+        "colors": ["rotten-green", "putrid-yellow", "rust"],
+        "associated_symbol": "Nurgle rune, Mortarion's icon",
+        "map_marker_convention": "Putrid-green ring around planet glyph; Nurgle trefoil overlay",
+        "wyrmlog_class_glyph": "Plague Planet — circle with Nurgle trefoil centre"
+      }
+    },
+    {
+      "id": "membrane_world",
+      "name": "Membrane World / Larder World",
+      "also_known_as": ["Larder World"],
+      "greek_class": null,
+      "category": "tyranid",
+      "description": "Tyranid-modified planet whose entire surface is covered in a membrane-like bio-structure under which vast quantities of non-Tyranid life are held in biostasis. The Tyranids continuously farm the biomass from low-orbit bio-ships connected via Capillary Tower architecture at the world's poles and equator. A grim variant of Hive Fleet conquest — rather than immediate consumption, the world becomes a sustained farming operation. The former Hive World Shakar is the type-specimen, discovered during the Fourth Tyrannic War.",
+      "population_range": "Indigenous biomass in biostasis; Tyranid bioforms above",
+      "tithe_grade_range": "N/A (consumed)",
+      "aestimare_range": "N/A",
+      "examples": ["Shakar (formerly Hive World, post-Fourth Tyrannic War)"],
+      "sources": ["lexicanum_larder_world", "fandom_larder_world", "lexicanum_capillary_tower"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Tyranid hexagonal-eye glyph with capillary-tower vertical lines emerging from the equator",
+        "colors": ["bio-purple", "membrane-pink", "Tyranid-chitin black"],
+        "associated_symbol": "Tyranid maw glyph, Capillary Tower icon",
+        "map_marker_convention": "Pink-purple ring with vertical capillary-line marks at poles and equator",
+        "wyrmlog_class_glyph": "Membrane/Larder World — circle with capillary-tower vertical lines"
+      }
+    },
+    {
+      "id": "hive_fleet_system",
+      "name": "Hive Fleet System / Tyranid-Consumed World",
+      "also_known_as": ["Husk World (informal, post-consumption)"],
+      "greek_class": null,
+      "category": "tyranid",
+      "description": "Planet or entire system that has been or is being consumed by a Tyranid Hive Fleet. Living biomass is stripped to feed the fleet's bio-ships. The world is left as a barren husk — surface vegetation gone, atmosphere often stripped, oceans drained. Once a Hive Fleet has passed, the world is effectively a Dead World, sometimes informally called a 'Husk World' on Imperial cartography. The Imperial response: full Exterminatus before consumption is preferable; system quarantine after.",
+      "population_range": "0 after consumption",
+      "tithe_grade_range": "N/A (Exterminatus or consumed)",
+      "aestimare_range": "N/A",
+      "examples": ["Tarsis Ultra", "Ichar IV (post-Kraken)", "Baal (besieged Leviathan)", "Tyran (type-specimen of Hive Fleet Behemoth)"],
+      "sources": ["fandom_hive_fleet", "lexicanum_dead_world"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Tyranid maw / hexagonal-eye glyph; bio-ship silhouette",
+        "colors": ["Hive-fleet livery — Behemoth red-cream, Kraken purple-blue, Leviathan blue-bone, Hydra red-brown, Jormungandr brown-tan"],
+        "associated_symbol": "Tyranid bio-glyph, Inquisitorial Hereticus-Extremis-Xenos seal",
+        "map_marker_convention": "Imperial cartography: 'PURIFIED — TYRANID BIOMASS DEPLETED' tag, often a red X-out",
+        "wyrmlog_class_glyph": "Hive Fleet System — circle with Tyranid maw glyph"
+      }
+    },
+    {
+      "id": "genestealer_cult_world",
+      "name": "Genestealer Cult World",
+      "also_known_as": ["Infested World", "Cult-Infested World"],
+      "greek_class": null,
+      "category": "tyranid",
+      "description": "World where a Genestealer Cult has established sufficient infestation to compromise the legitimate Imperial government but has not yet revealed itself in open revolt. Cults can persist for generations, infiltrating Imperial Adepta, military, and noble houses, propagating gene-sects through full brood cycles. When a Tyranid Hive Fleet finally arrives, the world may already be in cult hands, may be torn by civil war between cult and free society, or may be weakened enough to fall trivially. Path-to-Ascension canon recognises six base-class targets that Genestealer Cults can infest: Hive, Forge, Industrial, Agri, Frontier, and Mining-with-glasscrete sub-types.",
+      "population_range": "Per base class; cultist proportion variable",
+      "tithe_grade_range": "Per base class (still paying tithe until revealed)",
+      "aestimare_range": "Per base class",
+      "examples": ["Various Imperial worlds with active hidden cults"],
+      "sources": ["fandom_genestealer_cult", "lexicanum_genestealer_cult"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Four-armed corrupted aquila (Genestealer Cult parody); cult brood-mark",
+        "colors": ["mining-rig drab (orange, brown, grey) with hot purple/red veins of corruption"],
+        "associated_symbol": "Four-armed Emperor heresy-glyph, Day of Ascension banner",
+        "map_marker_convention": "Base-class glyph with hidden purple-vein overlay (only visible on Inquisition maps)",
+        "wyrmlog_class_glyph": "Genestealer Cult World — base-class circle with corrupted aquila and brood-spider"
+      }
+    },
+    {
+      "id": "ork_world",
+      "name": "Ork World / Ork-Held",
+      "also_known_as": ["Greenskin World", "Ork-Infested"],
+      "greek_class": null,
+      "category": "ork",
+      "description": "Planet wholly held by Orks. The Orks themselves call any world they hold theirs by right of conquest; the Imperium classifies based on extent: a fully-overrun planet is an 'Ork World', a contested one is an 'Ork Incursion', a system with a WAAAGH! gathering is an 'Ork System'. Unique among xenos categories — Ork population fluctuates wildly with their spore-cycle and can re-emerge centuries after apparent eradication.",
+      "population_range": "Variable, often surging unpredictably",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Charadon", "Ghazghkull's WAAAGH! systems", "Urk (Snakebite homeworld)", "Corva (Hruk Teefsplinta's binary system)"],
+      "sources": ["fandom_orks", "lexicanum_snakebites"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Ork glyph (square-toothed grin face); skull-and-crossed-choppa",
+        "colors": ["Ork-green", "rust-red"],
+        "associated_symbol": "Klan glyph (Goff black-white check, Bad Moon yellow-black, Evil Sun red flames, Snakebite tribal brown, Deathskull blue-skull, Blood Axe drab-camo)",
+        "map_marker_convention": "Imperial maps mark as red 'GREENSKIN' zones; cardinal warning often shows WAAAGH! arrow",
+        "wyrmlog_class_glyph": "Ork World — circle with grinning Ork glyph"
+      }
+    },
+    {
+      "id": "drukhari_holding",
+      "name": "Drukhari Holding / Webway Realm",
+      "also_known_as": ["Dark Eldar Holding", "Webway Realm", "Labyrinth Dimension Annex"],
+      "greek_class": null,
+      "category": "drukhari",
+      "description": "Not properly a planet — the Drukhari live in Commorragh, a city-realm in the Webway (the Labyrinth Dimension, a partitioned space carved off from the Immaterium by the Old Ones). They occupy satellite realms (Aelindrach, Shaa-dom, etc.) connected by Webway portals. Drukhari raid via Webway gates onto real-space worlds for slaves and material. Imperial classifications use 'Drukhari Raid Site' or 'Confirmed Webway Portal' rather than designating planets as Drukhari-held.",
+      "population_range": "N/A (Webway-dwelling)",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Commorragh (Webway)", "Aelindrach", "Shaa-dom"],
+      "sources": ["fandom_drukhari", "lexicanum_webway"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Stylized barbed crescent or splintered serpent; Webway portal arch",
+        "colors": ["Drukhari-black", "Cabal-violet", "blood-crimson"],
+        "associated_symbol": "Kabal-specific (Black Heart spiked heart, Strife slashed mouth, etc.)",
+        "map_marker_convention": "Webway-portal warning, NOT a planet marker",
+        "wyrmlog_class_glyph": "Drukhari Realm — Webway arch glyph"
+      }
+    },
+    {
+      "id": "tau_sept_world",
+      "name": "T'au Sept World",
+      "also_known_as": ["Sept World", "Prime Planet", "Capital Planet (T'au)"],
+      "greek_class": null,
+      "category": "tau",
+      "description": "Core T'au Empire planet under direct rule of one of the named Septs. Per Lexicanum: 'Each Sept is named after its Sept World, also known as Prime Planet or Capital Planet, from which the Sept is governed and is denoted by a different Sept Symbol and colour, often related to the unique culture of each Sept.' A Sept can include additional colonised planets or moons plus listening posts, sensor fields, shield satellites, orbital cities, and mining operations.",
+      "population_range": "Variable; T'au caste-stratified",
+      "tithe_grade_range": "N/A (T'au tax-and-tribute system)",
+      "aestimare_range": "N/A",
+      "examples": ["T'au (homeworld, First Sphere)", "Vior'la (Farsight's birthplace)", "Sa'cea (hottest, most populous Sept)", "Bork'an (academia)", "D'yanoi", "Vash'ya", "Au'taal", "Fal'shia (innovation)", "Tash'var (frontier)", "Elsy'eir"],
+      "sources": ["fandom_tau_sept_world", "lexicanum_tau_sept", "warhammer40k_lore_skill_factions"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Sept-specific T'au sigil; the central T'au glyph (interlocked circles) plus Sept variant",
+        "colors": ["Per-Sept livery — Vior'la red, Sa'cea white-cream, T'au tan, Bork'an tan/blue, D'yanoi maroon, Au'taal green, Fal'shia blue/silver"],
+        "associated_symbol": "T'au caste markings (Shas Fire, Fio Earth, Por Water, Kor Air, Aun Ethereal)",
+        "map_marker_convention": "Hexagonal marker rather than circle on T'au cartography",
+        "wyrmlog_class_glyph": "Sept World — hexagon with T'au glyph"
+      }
+    },
+    {
+      "id": "tau_protectorate_world",
+      "name": "T'au Protectorate / Sphere-of-Expansion World",
+      "greek_class": null,
+      "category": "tau",
+      "description": "T'au-administered world outside the core Septs. The T'au Empire grows in distinct phases ('Spheres of Expansion'); each Sphere brings new worlds into T'au administration that are not (yet) full Septs but are protectorates, colonies, or satellite worlds. Includes worlds reclaimed during the First, Second, Third, and Fourth (post-Mu'gulath Bay) Spheres. The Velk'han Sept in the Jericho Reach (FFG Deathwatch line) is a notable example of a T'au sub-empire established across reclaimed worlds.",
+      "population_range": "Variable; T'au + auxiliaries + assimilated human populations",
+      "tithe_grade_range": "N/A (T'au tax)",
+      "aestimare_range": "N/A",
+      "examples": ["Mu'gulath Bay (Damocles-target)", "Velk'han (Jericho Reach)", "Various Third-Sphere worlds"],
+      "sources": ["fandom_first_sphere_expansion", "lexicanum_spheres_of_expansion", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "T'au sphere-of-expansion glyph; sub-Sept variant",
+        "colors": ["per-administering-Sept livery"],
+        "associated_symbol": "T'au expansion-arrow glyph",
+        "map_marker_convention": "Smaller hexagonal marker than Sept Worlds"
+      }
+    },
+    {
+      "id": "ghoul_stars_world",
+      "name": "Ghoul Stars World",
+      "also_known_as": ["Ghost Stars World"],
+      "greek_class": null,
+      "category": "halo_zone",
+      "description": "World within the Ghoul Stars region — a mysterious, mostly-uncharted area of the galactic Halo Zone, north-east of Segmentum Ultima beyond the Eastern Fringe. Once home to a number of human-inhabited worlds; some ancient threat is believed responsible for their destruction. Now dominated by Dead Worlds and rumours of eldritch xenos remnants. Lies almost entirely beyond the light of the Astronomican, making Navigator-guided Warp travel exceptionally hazardous. The Death Spectres Chapter maintains constant vigil at its edge.",
+      "population_range": "Sparse, mysterious",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Various unnamed Ghoul Stars worlds", "Death Spectres patrol-territory"],
+      "sources": ["lexicanum_ghoul_stars", "fandom_ghoul_stars"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Ghoul-glyph (skull-and-fang); faded Astronomican-ring",
+        "colors": ["void-black", "spectral-grey"],
+        "associated_symbol": "Death Spectres icon (in patrol zones)",
+        "map_marker_convention": "Beyond-Astronomican shading; ghoul-skull overlay"
+      }
+    },
+    {
+      "id": "halo_world",
+      "name": "Halo World",
+      "greek_class": null,
+      "category": "halo_zone",
+      "description": "World within the Halo Stars — the outermost galactic clusters, on the edge of the void between galaxies. Beyond reliable Astronomican range, so warp-navigation is risky. Often hosts ancient xenos ruins (Egarian, Yu'Vath), pre-Imperial human colonies, Cold Trade caches, and rogue Mechanicus research stations. The Halo Zone is a recurring frontier setting in the FFG RT line.",
+      "population_range": "Sparse, often Foundling-tier",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "G500 – G1000",
+      "examples": ["Various unnamed Halo Stars worlds", "Halo-fringe research outposts"],
+      "sources": ["lexicanum_halo_stars", "ffg_rt_into_the_storm"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Faded-ring with star-cluster; explorator-eye",
+        "colors": ["void-black", "halo-amber"],
+        "associated_symbol": "Astronomican-fade glyph",
+        "map_marker_convention": "Faded ring; dashed border"
+      }
+    },
+    {
+      "id": "egarian_world",
+      "name": "Egarian Dominion World",
+      "greek_class": null,
+      "category": "xenos_extinct",
+      "description": "Planet bearing the ruins of the long-dead Egarian xenos civilization. Egarians were a crystalline species whose cities were crystalsong towers, often empty, sometimes humming with residual energies. Their ruins are scattered through the Egarian Dominion region of the Koronus Expanse. Reckless explorers can be psychically scoured by residual Egarian crystal-song. Egarian relics (the 'Egarian Spires of Vorr' on canonical maps) are coveted by Cold Traders.",
+      "population_range": "Extinct; ruins only",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["The Egarian Spires of Vorr", "Various unnamed Egarian Dominion worlds"],
+      "sources": ["ffg_rt_lure_of_the_expanse", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Crystalline spire-cluster; resonant glow ring",
+        "colors": ["crystalsong-violet", "egarian-bone"],
+        "associated_symbol": "Egarian glyph (six-sided crystal facet)",
+        "map_marker_convention": "Faceted-crystal overlay; psyker-resonance warning"
+      }
+    },
+    {
+      "id": "yu_vath_world",
+      "name": "Yu'Vath Accursed-Demesne World",
+      "greek_class": null,
+      "category": "xenos_extinct",
+      "description": "Planet within the Accursed Demesne sub-region of the Koronus Expanse — the ruins of the long-extinct Yu'Vath sorcerer-empire that ruled the Expanse before the Imperium arrived. Yu'Vath ruins host sorcerous traps and Daemon-bindings; the empire's specialty was warp-sorcery and slave-binding. Yu'Vath sites are considered Inquisitorial-Hereticus-Extremis territory, and even Cold Traders generally avoid them.",
+      "population_range": "Extinct; ruins only",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Various Accursed Demesne worlds in the Koronus Expanse"],
+      "sources": ["ffg_rt_edge_of_the_abyss", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Yu'Vath sorcery glyph (twisted-serpent rune)",
+        "colors": ["accursed-violet", "warp-bile-green"],
+        "associated_symbol": "Inquisitorial 'I' with warning bar",
+        "map_marker_convention": "Red interdiction ring with 'ACCURSED' annotation"
+      }
+    },
+    {
+      "id": "stryxis_collection",
+      "name": "Stryxis Collection / Stryxis-Held",
+      "greek_class": null,
+      "category": "xenos_nomadic",
+      "description": "FFG Rogue Trader designation for a system, station, or planet held by the Stryxis — long-lived nomad-trader xenos of the Koronus Expanse. Junk-laden caravans of saucer-shaped voidcraft moor at 'Stryxis Collections,' which serve as semi-permanent markets where the Stryxis hawk a chaos of cobbled-together junk, archeotech, and Cold Trade goods. Stryxis are cunning and mendacious but tolerated by Rogue Traders who navigate the Expanse trade routes.",
+      "population_range": "Stryxis caravan crews (typically a few hundred per Collection)",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Various Stryxis Collections in the Expanse"],
+      "sources": ["ffg_rt_koronus_bestiary", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Stryxis saucer-silhouette; junker-spiral",
+        "colors": ["scrap-bronze", "stryxis-tan"],
+        "associated_symbol": "Stryxis caravan-glyph",
+        "map_marker_convention": "Lozenge marker (semi-mobile); junker-glyph"
+      }
+    },
+    {
+      "id": "rakgol_held_world",
+      "name": "Rak'Gol-Held World",
+      "greek_class": null,
+      "category": "xenos_aggressive",
+      "description": "FFG Rogue Trader designation for a world or system held by the Rak'Gol — six-armed butcher-savage xenos, machine-augmented and savagely industrial. They raid Imperial worlds at the edge of the Expanse and beyond. Rak'Gol holdings are typically post-conquest worlds whose original inhabitants have been butchered for raw biological material; the Rak'Gol industrial level is high but their society is incomprehensibly brutal.",
+      "population_range": "Variable",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Various Koronus-edge Rak'Gol enclaves"],
+      "sources": ["ffg_rt_koronus_bestiary", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Six-armed silhouette; butcher-chevron",
+        "colors": ["rak'gol-iron", "blood-red"],
+        "associated_symbol": "Rak'Gol clan-glyph",
+        "map_marker_convention": "Red interdiction ring with butcher-chevron"
+      }
+    },
+    {
+      "id": "slaugth_world",
+      "name": "Slaugth-Infested World",
+      "greek_class": null,
+      "category": "xenos_aggressive",
+      "description": "FFG designation for worlds infested by the Slaugth — necrophagic insectoid-humanoid hybrid xenos, deeply alien, rumored to harvest psyker-corpses for warp insight. Almost Lovecraftian in design. Slaugth presence is typically discovered post-hoc, with entire Imperial outposts found drained of their dead. Always Inquisitorial-Hereticus-Extremis-Xenos.",
+      "population_range": "Hidden Slaugth + (often dwindling) host population",
+      "tithe_grade_range": "N/A (quarantined)",
+      "aestimare_range": "N/A",
+      "examples": ["Various Halo-Stars-fringe Slaugth enclaves"],
+      "sources": ["ffg_rt_koronus_bestiary", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Insectoid-mandible glyph",
+        "colors": ["necrophage-black", "bile-green"],
+        "associated_symbol": "Inquisitorial Hereticus-Extremis-Xenos seal",
+        "map_marker_convention": "Red interdiction ring with skull-and-mandible"
+      }
+    },
+    {
+      "id": "hrud_pocket",
+      "name": "Hrud Pocket / Hrud-Burrowed World",
+      "greek_class": null,
+      "category": "xenos_dimensional",
+      "description": "World infested by Hrud — burrowing, time-warping vermin-shape xenos that emanate an 'entropic aura' which ages anything around them at accelerated rates. Hrud migrations are seismic events that may take decades. Hrud-infested worlds are dangerous to occupy: Imperial garrison troops age out within months. Usually classified as feral xenos infestation, occasionally rising to formal quarantine status.",
+      "population_range": "Hrud + (rapidly-aging) garrison",
+      "tithe_grade_range": "N/A",
+      "aestimare_range": "N/A",
+      "examples": ["Various Halo-Zone and Calixis-fringe Hrud-pockets"],
+      "sources": ["ffg_rt_koronus_bestiary", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Coiled-burrow glyph; entropy-spiral",
+        "colors": ["entropy-grey", "hrud-bone"],
+        "associated_symbol": "Time-warp warning rune",
+        "map_marker_convention": "Grey ring with entropy-spiral"
+      }
+    },
+    {
+      "id": "rogue_trader_dynasty_holding",
+      "name": "Rogue Trader Dynasty Holding",
+      "also_known_as": ["Charter Holding", "Warrant Demesne", "Free Trade Holding"],
+      "greek_class": null,
+      "category": "rogue_trader",
+      "description": "Planet held by a Rogue Trader dynasty under its Warrant of Trade. Common in the Koronus Expanse, the Calixis Sector's outer Halo Stars, the Jericho Reach, and other frontier regions where dynasties hold worlds the Administratum has not yet integrated. The Warrant grants near-total authority — the dynasty governs, taxes, conscripts, and trades as it sees fit, answering only to the Senatorum Imperialis (or in practice, no one).",
+      "population_range": "Variable",
+      "tithe_grade_range": "Per Warrant of Trade — often Aptus non with negotiated tribute",
+      "aestimare_range": "Variable",
+      "examples": ["Haarlock-held worlds (Calixis)", "Winterscale's Realm (Koronus)", "Chorda holdings", "Hadarak Fel demesne"],
+      "sources": ["warhammer40k_lore_skill_rogue_trader", "codified_rt_lore_corpus"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Dynasty heraldic crest; Warrant scroll",
+        "colors": ["Dynasty-specific livery (e.g., Winterscale black-and-gold, Chorda red-and-gold pith-helmet, Haarlock jester-skull-and-chain)"],
+        "associated_symbol": "Warrant of Trade scroll, Senatorum aquila variant",
+        "map_marker_convention": "Annotated 'WARRANT' or 'CHARTER' marking; dynasty-heraldry overlay",
+        "wyrmlog_class_glyph": "Rogue Trader Holding — circle with scroll-and-aquila overlay"
+      }
+    },
+    {
+      "id": "ice_world",
+      "name": "Ice World",
+      "greek_class": null,
+      "category": "environmental_subtype",
+      "category_note": "sub_type — qualifies a primary class",
+      "description": "Environmental sub-classification. Planet whose surface is dominated by ice, glacier, and permafrost. May be classified primarily as Death World (Valhalla-tier hostile), Mining World (resource-rich ice), or Civilised World with extreme conditions.",
+      "tithe_grade_range": "Per primary class",
+      "aestimare_range": "Per primary class",
+      "examples": ["Valhalla", "Fenris (semi)"],
+      "sources": ["lexicanum_class_planet", "warhammer40k_lore_skill_geography"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Snowflake glyph or icicle-cross overlaid on base class glyph",
+        "colors": ["ice-blue", "white"],
+        "map_marker_convention": "White-blue ring on planet glyph",
+        "wyrmlog_class_glyph": "Ice environment — base-class circle with snowflake corner mark"
+      }
+    },
+    {
+      "id": "desert_world",
+      "name": "Desert World",
+      "greek_class": null,
+      "category": "environmental_subtype",
+      "category_note": "sub_type",
+      "description": "Environmental sub-classification. Arid, barren surface across the planet. May be classified as Civilised (Tallarn), Feral, or Death depending on hostility. Often a Mining World variant when valuable minerals are exposed by lack of cover.",
+      "tithe_grade_range": "Per primary class",
+      "aestimare_range": "Per primary class",
+      "examples": ["Tallarn", "Arrakis-analogue worlds in Calixis"],
+      "sources": ["lexicanum_class_planet"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Sun-disc over wave-dune line",
+        "colors": ["desert-tan", "rust-brown"],
+        "map_marker_convention": "Tan-coloured planet ring",
+        "wyrmlog_class_glyph": "Desert environment — base-class circle with dune-wave mark"
+      }
+    },
+    {
+      "id": "jungle_world",
+      "name": "Jungle World",
+      "greek_class": null,
+      "category": "environmental_subtype",
+      "category_note": "sub_type — almost always Death World",
+      "description": "Environmental sub-classification. Planet covered by a single globe-spanning jungle. Almost universally Death-class due to carnivorous flora and fauna. Catachan is the canonical exemplar.",
+      "tithe_grade_range": "Per primary class (usually Death)",
+      "aestimare_range": "Per primary class",
+      "examples": ["Catachan", "Pyrus", "Loki (semi)"],
+      "sources": ["lexicanum_class_planet", "fandom_jungle_world"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Vine-and-fang glyph; carnivorous-flower silhouette",
+        "colors": ["jungle-green", "blood-red"],
+        "map_marker_convention": "Deep-green planet ring; vine-overlay",
+        "wyrmlog_class_glyph": "Jungle environment — base-class circle with vine-corner mark"
+      }
+    },
+    {
+      "id": "volcanic_world",
+      "name": "Volcanic World",
+      "greek_class": null,
+      "category": "environmental_subtype",
+      "category_note": "sub_type",
+      "description": "Environmental sub-classification. Planet wracked by tectonic upheaval and active volcanism. Often Death-class due to lava, ash, ion storms. Nocturne (Salamanders homeworld) is the canonical exemplar.",
+      "tithe_grade_range": "Per primary class",
+      "aestimare_range": "Per primary class",
+      "examples": ["Nocturne (Salamanders)", "Vulkan-themed worlds"],
+      "sources": ["lexicanum_class_planet"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Volcano silhouette with lava-flow",
+        "colors": ["lava-orange", "ash-grey", "obsidian-black"],
+        "map_marker_convention": "Orange/red planet ring; volcano-cone overlay",
+        "wyrmlog_class_glyph": "Volcanic environment — base-class circle with volcano-corner mark"
+      }
+    },
+    {
+      "id": "ocean_world",
+      "name": "Ocean World",
+      "greek_class": null,
+      "category": "environmental_subtype",
+      "category_note": "sub_type",
+      "description": "Environmental sub-classification. Planet whose surface is overwhelmingly liquid (water, methane, ammonia, or other solvents). Population centres are floating platforms, submerged arcologies, or coastal redoubts.",
+      "tithe_grade_range": "Per primary class",
+      "aestimare_range": "Per primary class",
+      "examples": ["Bahkos (FFG RT)", "various Calixis-rim worlds"],
+      "sources": ["lexicanum_class_planet"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Wave glyph; trident or kraken-tentacle",
+        "colors": ["ocean-blue", "deep-teal"],
+        "map_marker_convention": "Deep-blue planet ring",
+        "wyrmlog_class_glyph": "Ocean environment — base-class circle with wave-corner mark"
+      }
+    },
+    {
+      "id": "garden_environmental",
+      "name": "Garden (environmental sub-type)",
+      "greek_class": null,
+      "category": "environmental_subtype",
+      "category_note": "sub_type — distinct from Paradise World designation; here is the environmental qualifier",
+      "description": "Environmental sub-classification — a beautiful, fertile planet that is NOT specifically a Pleasure World but enjoys lush conditions. Often classified primarily as Civilised World with the [cg] sub-class tag (per 3rd-edition rulebook). May overlap with Agri or Paradise designations.",
+      "tithe_grade_range": "Per primary class (usually Civilised)",
+      "aestimare_range": "Per primary class",
+      "examples": ["Esoshi (FFG)", "various unnamed Calixis core worlds"],
+      "sources": ["src_wh40k_3e_p114"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Leaf-cluster or flowering branch",
+        "colors": ["verdant-green", "spring-pink"],
+        "map_marker_convention": "Light-green ring with leaf overlay",
+        "wyrmlog_class_glyph": "Garden environment — base-class circle with leaf-corner mark"
+      }
+    },
+    {
+      "id": "toxic_world",
+      "name": "Toxic World",
+      "greek_class": null,
+      "category": "environmental_subtype",
+      "category_note": "sub_type",
+      "description": "Environmental sub-classification. Planet with poisonous atmosphere, soil, or hydrosphere. May be naturally toxic (volcanic outgassing) or industrially poisoned (post-Forge-World ruin, post-orbital-bombardment). Often Death or Quarantined class.",
+      "tithe_grade_range": "Per primary class",
+      "aestimare_range": "Per primary class",
+      "examples": ["various post-Heresy worlds", "specific Death Guard target worlds"],
+      "sources": ["lexicanum_class_planet"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Biohazard trefoil; gas-cloud silhouette",
+        "colors": ["bile-green", "warning-yellow"],
+        "map_marker_convention": "Yellow-on-black biohazard ring",
+        "wyrmlog_class_glyph": "Toxic environment — base-class circle with biohazard-corner mark"
+      }
+    },
+    {
+      "id": "crystal_world",
+      "name": "Crystal World",
+      "greek_class": null,
+      "category": "environmental_subtype",
+      "category_note": "sub_type",
+      "description": "Environmental sub-classification. Planet where the dominant geology is exotic crystal formation — silicate, diamondoid, or psy-reactive minerals. Some Crystal Worlds resonate with the Warp (rare; Inquisitorial interest). Often Mining World variants when the crystals are valuable.",
+      "tithe_grade_range": "Per primary class",
+      "aestimare_range": "Per primary class",
+      "examples": ["various unnamed Halo Stars worlds (FFG)"],
+      "sources": ["warhammer40k_lore_skill_geography"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Faceted crystal cluster",
+        "colors": ["prismatic", "violet-shift"],
+        "map_marker_convention": "Multi-coloured ring; faceted overlay",
+        "wyrmlog_class_glyph": "Crystal environment — base-class circle with faceted-corner mark"
+      }
+    },
+    {
+      "id": "gas_giant",
+      "name": "Gas Giant",
+      "greek_class": null,
+      "category": "body_type",
+      "category_note": "body type, not a world classification — used by RT14 system generator",
+      "description": "Solar-system body type rather than an inhabited-world classification. Gas Giants in 40k canon may host orbital Mechanicus Forge facilities (Jupiter is a Forge World despite being a Gas Giant — its 'population' lives on moons and orbital stations) or be wholly uninhabited. Always rolled directly from RT14 Table 1-3 as a system element type.",
+      "tithe_grade_range": "N/A unless Forge-overlaid",
+      "examples": ["Jupiter (Forge World)", "Most uninhabited Gas Giants of generated systems"],
+      "sources": ["src_wh40k_3e_p114", "lexicanum_sol_system"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Banded sphere with storm-spot",
+        "colors": ["gas-giant amber + brown bands", "or jovian-tan"],
+        "map_marker_convention": "Larger circle with horizontal storm bands"
+      }
+    },
+    {
+      "id": "asteroid_belt",
+      "name": "Asteroid Belt / Cluster",
+      "greek_class": null,
+      "category": "body_type",
+      "description": "Solar-system body type. Field of small rocky bodies in a shared orbital region. Often Mechanicus or Rogue Trader mining target; sometimes Ork Stompa-yards or pirate hiding-grounds.",
+      "tithe_grade_range": "N/A",
+      "examples": ["The Sol Asteroid Belt", "Most generated-system asteroid belts"],
+      "sources": ["lexicanum_sol_system"],
+      "iconography": {
+        "shape": "canonical",
+        "primary_glyph": "Ring of small dots in orbital arc",
+        "colors": ["asteroid-grey"],
+        "map_marker_convention": "Dotted-ring overlay around the parent star or planet"
+      }
+    },
+    {
+      "id": "starship_graveyard",
+      "name": "Starship Graveyard",
+      "greek_class": null,
+      "category": "body_type",
+      "description": "RT14 system-element type — a wreck-field of derelict starships, often the remnant of a long-ago battle or void disaster. Common Cold Trade salvage target; sometimes hides functional craft. Trader's Tomb in the Koronus Expanse is the canonical exemplar.",
+      "tithe_grade_range": "N/A",
+      "examples": ["Trader's Tomb (Koronus)", "The Mythos system's Unknown Provenance Graveyard"],
+      "sources": ["src_rt14_stars_p41", "warhammer40k_lore_skill_rogue_trader"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Cluster of wreck-silhouettes; broken aquila",
+        "colors": ["void-black", "rust-rust"],
+        "map_marker_convention": "Burst-of-lines glyph with small ship silhouettes"
+      }
+    },
+    {
+      "id": "derelict_station",
+      "name": "Derelict Station",
+      "greek_class": null,
+      "category": "body_type",
+      "description": "RT14 system-element type — an abandoned, often ancient, void-station of human or xeno origin. Hosts contents drawn from RT14's Derelict Station Contents subtable (archeotech, xenos relics, lurking dangers).",
+      "tithe_grade_range": "N/A",
+      "examples": ["The Stryxis Collection (Mythos)", "Iridian Beacon (Koronus)"],
+      "sources": ["src_rt14_stars_p41"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Diamond/lozenge with internal bracket-marks",
+        "colors": ["station-grey", "abandoned-amber"],
+        "map_marker_convention": "Diamond marker (per Wyrmlog convention for non-planet bodies)"
+      }
+    },
+    {
+      "id": "dust_cloud",
+      "name": "Dust Cloud",
+      "greek_class": null,
+      "category": "body_type",
+      "description": "RT14 system-element type — diffuse cloud of fine particulate matter occupying an orbital region. Hazardous to void-craft; may host strange phenomena. Lucin's Breath in the Koronus Expanse is the canonical hazardous exemplar.",
+      "tithe_grade_range": "N/A",
+      "examples": ["Lucin's Breath", "Various unnamed generated dust clouds"],
+      "sources": ["src_rt14_stars_p41"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Faded oval with dispersed dots",
+        "colors": ["dust-amber", "navigation-warning yellow"],
+        "map_marker_convention": "Faded translucent ring with caution-stripe"
+      }
+    },
+    {
+      "id": "gravity_riptide",
+      "name": "Gravity Riptide",
+      "greek_class": null,
+      "category": "body_type",
+      "description": "RT14 system-element type — a dangerous gravitic anomaly, often from a hidden mass or warp-touched space. Treats void-craft as a hazard; can rip ships apart or pull them into the Warp. The Rifts of Hecaton are a sub-region of the Koronus Expanse plagued by these.",
+      "tithe_grade_range": "N/A",
+      "examples": ["The Rifts of Hecaton (large-scale)", "Various unnamed generated gravity-riptides"],
+      "sources": ["src_rt14_stars_p41"],
+      "iconography": {
+        "shape": "convention",
+        "primary_glyph": "Stylized spiral-warp; red warning ring",
+        "colors": ["warp-violet", "warning-red"],
+        "map_marker_convention": "Red spiral overlay with hazard-mark"
+      }
+    }
+  ],
+
+  "tithe_grades": {
+    "_doc": "Imperial Administratum tithe grades. Listed from heaviest extraction (rank 1) to fully exempt (rank 12).",
+    "grades": [
+      {"name": "Exactis Extremis", "rank": 1, "description": "Maximum extraction — typically major Hive Worlds at peak production."},
+      {"name": "Exactis Particular", "rank": 2, "description": "Heavy extraction — Hive World standard, productive Civilised Worlds."},
+      {"name": "Exactis Prima", "rank": 3, "description": "High extraction — productive Agri-Worlds, mid-tier Civilised Worlds."},
+      {"name": "Exactis Mediam", "rank": 4, "description": "Standard extraction — typical Civilised World."},
+      {"name": "Exactis Tertius", "rank": 5, "description": "Reduced standard extraction — Civilised World on long-term decline."},
+      {"name": "Decuma Extremis", "rank": 6, "description": "Maximum tithe-of-tenth (one-tenth of GDP) — highly productive Hive World."},
+      {"name": "Decuma Particular", "rank": 7, "description": "Standard tithe-of-tenth."},
+      {"name": "Decuma Tertius", "rank": 8, "description": "Reduced tithe-of-tenth."},
+      {"name": "Solutio Extremis", "rank": 9, "description": "Token tithe — low-productivity worlds, Frontier."},
+      {"name": "Solutio Prima", "rank": 10, "description": "Minimal token tithe — Feudal World standard."},
+      {"name": "Solutio Tertius", "rank": 11, "description": "Bare-minimum tithe — Feral World standard."},
+      {"name": "Aptus non", "rank": 12, "description": "EXEMPT — Forge Worlds (Mechanicus pact), Dead Worlds (nothing to extract), Astartes Chapter Homeworlds (recruits in lieu), Penal Worlds (criminals in lieu)."}
+    ]
+  },
+
+  "imperial_status_designations": {
+    "_doc": "Status-flag designations applied to worlds in addition to their primary class. These are NOT planet classes per se but Inquisition / Administratum status marks. Stored as cross-references.",
+    "statuses": [
+      {"id": "extremis_diabolus", "name": "Extremis Diabolus", "description": "Most serious accusation an Inquisitor can possibly give. Used most often by Inquisitors of the Ordo Malleus for consorting with or being under the influence of Daemons. Witchcraft, practising forbidden arts, and heresy against the Emperor are all grounds. Punishment: death; world: usually Exterminatus."},
+      {"id": "excommunicate_traitoris", "name": "Excommunicate Traitoris", "description": "High Gothic bureaucratic designation representing the highest form of Imperial reproach against a citizen, world, or organisation that has committed extreme acts of heresy — mutation, rebellion against Imperial rule, corruption by Chaos."},
+      {"id": "hereticus_abomini", "name": "Hereticus Abomini", "description": "Stigma applied by the Ordo Hereticus for dangerous heretics — typically demagogues, witch-cult leaders, mutant warlords, false prophets."}
+    ]
+  },
+
+  "necron_dynasty_hierarchy": {
+    "_doc": "Per-dynasty world hierarchy used by all Necron Dynasties. Each dynasty has 1 Crownworld, multiple Coreworlds, and many Fringeworlds.",
+    "ranks": [
+      {"id": "crownworld", "rank": 1, "description": "Most important — seat of the Phaeron"},
+      {"id": "coreworld", "rank": 2, "description": "Heart of dynastic territory"},
+      {"id": "fringeworld", "rank": 3, "description": "Periphery, lesser importance"}
+    ]
+  },
+
+  "classification_rules": {
+    "_doc": "Mapping from RT14 generator output fields (rules/star_system_generation.py) to candidate designation IDs. Used by classify_world() in rules/classify_world.py to produce a deterministic designation suggestion for each generated body. Order matters: the FIRST matching rule wins. Each rule returns a `(designation_id, confidence)` tuple. Lore generation may override based on faction/NPC assignment.",
+    "_usage": "rules = DESIGNATION_RULES['rules']; for rule in rules: if rule['match'].matches(body): return rule['designation'], rule['confidence']",
+    "rules": [
+      {
+        "rule_id": "gas_giant_to_body_type",
+        "match": {"body.element_type": "Gas Giant"},
+        "designation": "gas_giant",
+        "environment_subtype": null,
+        "confidence": "high",
+        "reason": "RT14 element_type Gas Giant maps directly to body-type"
+      },
+      {
+        "rule_id": "asteroid_belt_to_body_type",
+        "match": {"body.element_type": ["Asteroid Belt", "Asteroid Cluster", "Asteroid"]},
+        "designation": "asteroid_belt",
+        "confidence": "high"
+      },
+      {
+        "rule_id": "starship_graveyard_to_body_type",
+        "match": {"body.element_type": "Starship Graveyard"},
+        "designation": "starship_graveyard",
+        "confidence": "high"
+      },
+      {
+        "rule_id": "derelict_station_to_body_type",
+        "match": {"body.element_type": "Derelict Station"},
+        "designation": "derelict_station",
+        "confidence": "high"
+      },
+      {
+        "rule_id": "dust_cloud_to_body_type",
+        "match": {"body.element_type": "Dust Cloud"},
+        "designation": "dust_cloud",
+        "confidence": "high"
+      },
+      {
+        "rule_id": "gravity_riptide_to_body_type",
+        "match": {"body.element_type": "Gravity Riptide"},
+        "designation": "gravity_riptide",
+        "confidence": "high"
+      },
+      {
+        "rule_id": "inhospitable_no_life_dead",
+        "match": {
+          "body.element_type": "Planet",
+          "body.details.habitability": "Inhospitable",
+          "body.details.inhabitants": ["none", null]
+        },
+        "designation": "dead_world",
+        "confidence": "high",
+        "reason": "Inhospitable + no inhabitants = Dead World"
+      },
+      {
+        "rule_id": "inhospitable_lethal_traits_death",
+        "match": {
+          "body.element_type": "Planet",
+          "body.details.habitability": "Inhospitable",
+          "body.details.territory_traits.has_any_of": ["Lethal Atmosphere", "Lethal Hazards", "Lethal Fauna"]
+        },
+        "designation": "death_world",
+        "confidence": "high",
+        "reason": "Inhospitable with lethal hazards = Death World"
+      },
+      {
+        "rule_id": "trapped_water_ice_subtype",
+        "match": {"body.details.habitability": "Trapped Water"},
+        "designation_modifier": {"add_environment_subtype": "ice_world"},
+        "confidence": "medium",
+        "reason": "Trapped Water → Ice environment overlay"
+      },
+      {
+        "rule_id": "verdant_pre_industrial_humans_feudal",
+        "match": {
+          "body.details.habitability": "Verdant",
+          "body.details.inhabitants": "Humans",
+          "body.details.inhabitant_development": "Pre-Industrial"
+        },
+        "designation": "feudal_world",
+        "confidence": "high",
+        "reason": "Verdant + Pre-Industrial Humans = Feudal World"
+      },
+      {
+        "rule_id": "primitive_clans_humans_feral",
+        "match": {
+          "body.details.inhabitants": "Humans",
+          "body.details.inhabitant_development": "Primitive Clans"
+        },
+        "designation": "feral_world",
+        "confidence": "high",
+        "reason": "Primitive Clans Humans = Feral World"
+      },
+      {
+        "rule_id": "advanced_industry_humans_hive",
+        "match": {
+          "body.details.inhabitants": "Humans",
+          "body.details.inhabitant_development": "Advanced Industry",
+          "body.details.habitability": ["Liquid Water", "Limited Ecosystem"]
+        },
+        "designation": "hive_world",
+        "confidence": "medium",
+        "reason": "Advanced Industry + Liquid Water = candidate Hive World (lore override for Civilized when population density is moderate)"
+      },
+      {
+        "rule_id": "basic_industry_humans_industrial_or_civilized",
+        "match": {
+          "body.details.inhabitants": "Humans",
+          "body.details.inhabitant_development": "Basic Industry"
+        },
+        "designation": "industrial_world",
+        "confidence": "low",
+        "reason": "Basic Industry → Industrial World candidate; lore override may set to Civilized depending on cultural detail"
+      },
+      {
+        "rule_id": "verdant_no_humans_no_xenos_paradise",
+        "match": {
+          "body.details.habitability": "Verdant",
+          "body.details.inhabitants": ["none", null]
+        },
+        "designation": "paradise_world",
+        "confidence": "medium",
+        "reason": "Verdant + uninhabited = Paradise World candidate"
+      },
+      {
+        "rule_id": "colony_humans_frontier",
+        "match": {
+          "body.details.inhabitants": "Humans",
+          "body.details.inhabitant_development": "Colony"
+        },
+        "designation": "frontier_world",
+        "confidence": "high",
+        "reason": "Human Colony = Frontier World"
+      },
+      {
+        "rule_id": "voidfarers_humans_artificial",
+        "match": {
+          "body.details.inhabitants": "Humans",
+          "body.details.inhabitant_development": "Voidfarers"
+        },
+        "designation": "artificial_world",
+        "confidence": "medium",
+        "reason": "Human Voidfarers → Artificial World (orbital habitat); may be Frontier-overlay"
+      },
+      {
+        "rule_id": "exodite_eldar_exodite",
+        "match": {
+          "body.details.inhabitants": "Eldar",
+          "body.details.inhabitant_development": "Primitive Clans (Exodites)"
+        },
+        "designation": "exodite_world",
+        "confidence": "high",
+        "reason": "RT14 Exodite Eldar = Exodite World on a Maiden World"
+      },
+      {
+        "rule_id": "voidfarer_eldar_craftworld",
+        "match": {
+          "body.details.inhabitants": "Eldar",
+          "body.details.inhabitant_development": "Voidfarers"
+        },
+        "designation": "craftworld",
+        "confidence": "medium",
+        "reason": "Voidfarer Eldar = Craftworld presence (the body itself may not be the Craftworld)"
+      },
+      {
+        "rule_id": "rakgol_inhabited_rakgol_held",
+        "match": {"body.details.inhabitants": "Rak'Gol"},
+        "designation": "rakgol_held_world",
+        "confidence": "high"
+      },
+      {
+        "rule_id": "orks_inhabited_ork_world",
+        "match": {"body.details.inhabitants": "Orks"},
+        "designation": "ork_world",
+        "confidence": "high"
+      },
+      {
+        "rule_id": "kroot_inhabited_frontier_xeno",
+        "match": {"body.details.inhabitants": "Kroot"},
+        "designation": "frontier_world",
+        "confidence": "low",
+        "reason": "Kroot mercenary enclave — defaults to Frontier with lore override"
+      },
+      {
+        "rule_id": "xenos_other_voidfarer_unknown",
+        "match": {
+          "body.details.inhabitants": "Xenos (Other)",
+          "body.details.inhabitant_development": "Voidfarers"
+        },
+        "designation": null,
+        "designation_alternatives": ["egarian_world", "yu_vath_world", "stryxis_collection", "slaugth_world", "hrud_pocket"],
+        "confidence": "lore_only",
+        "reason": "Unknown xenos voidfarers — lore-step picks specific xeno based on Koronus-Expanse sub-region and roll on Koronus Bestiary table"
+      },
+      {
+        "rule_id": "system_feature_warp_stasis_marks_quarantined",
+        "match": {"system.system_features.has_any_of": ["Warp Stasis", "Warp Turbulence"]},
+        "designation_modifier": {"add_status_designation": "candidate_quarantined"},
+        "confidence": "low",
+        "reason": "Warp Stasis / Turbulence suggests the system may be flagged for quarantine"
+      }
+    ]
+  },
+
+  "lore_classification_overrides": {
+    "_doc": "Lore-time override rules. Run AFTER classification_rules and after lore_generation has assigned factions and NPCs. The first matching rule wins; if none match, the deterministic designation stands.",
+    "rules": [
+      {"rule_id": "mechanicus_faction_forge", "if_faction": "Adeptus Mechanicus", "and_not_body_type": "gas_giant", "designation": "forge_world", "reason": "Mechanicus faction → Forge World"},
+      {"rule_id": "ecclesiarchy_with_cardinal_governor_cardinal", "if_faction": "Adeptus Ministorum", "if_npc_rank_contains": "Cardinal", "designation": "cardinal_world", "reason": "Cardinal-rank governor → Cardinal World"},
+      {"rule_id": "ecclesiarchy_shrine", "if_faction": "Adeptus Ministorum", "designation": "shrine_world", "reason": "Ecclesiarchy faction default → Shrine World"},
+      {"rule_id": "ecclesiarchy_saint_holy", "if_faction": "Adeptus Ministorum", "if_lore_tags_contains": "saint", "designation": "holy_world", "reason": "Saint-associated → Holy World overlay"},
+      {"rule_id": "astartes_chapter_homeworld", "if_faction": "Adeptus Astartes Chapter", "if_lore_tags_contains": "fortress_monastery", "designation": "astartes_homeworld", "preserve_base_class_as": "secondary_designation"},
+      {"rule_id": "astartes_recruiting", "if_faction": "Adeptus Astartes Chapter", "if_lore_tags_contains": "recruitment", "designation": "astartes_recruiting_world", "preserve_base_class_as": "secondary_designation"},
+      {"rule_id": "astartes_fief", "if_faction": "Adeptus Astartes Chapter", "designation": "astartes_fief_world", "preserve_base_class_as": "secondary_designation"},
+      {"rule_id": "necron_awakening_tomb", "if_lore_tags_contains": ["necron", "awakening", "slumberer"], "designation": "tomb_world"},
+      {"rule_id": "necron_dynasty_crownworld", "if_lore_tags_contains": ["necron", "phaeron", "dynasty_seat"], "designation": "crownworld", "preserve_base_class_as": "secondary_designation"},
+      {"rule_id": "chaos_eye_of_terror_daemon", "if_faction": "Chaos", "if_location_region": "Eye of Terror", "designation": "daemon_world"},
+      {"rule_id": "chaos_eye_of_terror_aeldari_origin_crone", "if_faction": "Chaos", "if_location_region": "Eye of Terror", "if_lore_tags_contains": "pre_fall_aeldari", "designation": "crone_world"},
+      {"rule_id": "chaos_death_guard_plague", "if_faction": "Chaos (Death Guard)", "designation": "plague_planet"},
+      {"rule_id": "tyranid_consumed_hive_fleet", "if_lore_tags_contains": ["tyranid_consumed", "hive_fleet"], "designation": "hive_fleet_system"},
+      {"rule_id": "tyranid_membrane_larder", "if_lore_tags_contains": ["capillary_tower", "biostasis"], "designation": "membrane_world"},
+      {"rule_id": "genestealer_cult_hidden", "if_lore_tags_contains": "genestealer_cult", "designation": "genestealer_cult_world", "preserve_base_class_as": "secondary_designation"},
+      {"rule_id": "tau_sept", "if_faction": "T'au Empire (Sept)", "designation": "tau_sept_world"},
+      {"rule_id": "tau_protectorate", "if_faction": "T'au Empire (Protectorate)", "designation": "tau_protectorate_world"},
+      {"rule_id": "drukhari_webway", "if_faction": "Drukhari", "designation": "drukhari_holding"},
+      {"rule_id": "egarian_ruins", "if_lore_tags_contains": ["egarian", "crystalsong"], "designation": "egarian_world"},
+      {"rule_id": "yu_vath_ruins", "if_lore_tags_contains": ["yu_vath", "sorcerous_ruin"], "designation": "yu_vath_world"},
+      {"rule_id": "stryxis_collection", "if_lore_tags_contains": "stryxis", "designation": "stryxis_collection"},
+      {"rule_id": "rogue_trader_warrant_holding", "if_faction": "Rogue Trader Dynasty", "designation": "rogue_trader_dynasty_holding", "preserve_base_class_as": "secondary_designation"},
+      {"rule_id": "foundling_human_pre_imperial_lost", "if_lore_tags_contains": ["lost_colony", "pre_imperial_human"], "designation": "foundling_world"},
+      {"rule_id": "war_active_war_zone", "if_lore_tags_contains": "active_war_zone", "designation": "war_world", "preserve_base_class_as": "secondary_designation"},
+      {"rule_id": "fortress_garrison_planet_wide", "if_lore_tags_contains": ["planet_wide_fortification", "imperial_bastion"], "designation": "fortress_world"},
+      {"rule_id": "sentinel_indomitus_bastion", "if_lore_tags_contains": ["indomitus_era_bastion"], "designation": "sentinel_world"},
+      {"rule_id": "krieg_style_penitent", "if_lore_tags_contains": ["collective_atonement", "penitent_society"], "designation": "penitent_world"},
+      {"rule_id": "penal_legion_colony", "if_lore_tags_contains": ["prison_colony", "penal_legion_source"], "designation": "penal_world"},
+      {"rule_id": "knight_house_seat", "if_lore_tags_contains": ["knight_house"], "designation": "knight_world"},
+      {"rule_id": "sector_capital_seat", "if_lore_tags_contains": ["sector_capital", "lord_sector_seat"], "designation": "sector_capital", "preserve_base_class_as": "secondary_designation"}
+    ]
+  },
+
+  "iconography_general_notes": {
+    "imperial_baseline": "All Imperial worlds bear the Aquila (Imperial Eagle) as default state-emblem. Class-specific glyphs overlay or modify the Aquila.",
+    "map_color_conventions": {
+      "imperial_loyal": "Bone / parchment / Imperial gold",
+      "mechanicus": "Mechanicus red (#8B0000)",
+      "ecclesiarchy": "Ecclesiarchal gold + Saintly white",
+      "death_world": "Red border / red glow",
+      "tomb_world": "Necron green inner glow when known; otherwise dead-grey",
+      "daemon_world": "Eight-pointed-star black, or god-specific god-mark colour",
+      "tyranid_consumed": "Hive-fleet-specific red/purple/blue",
+      "ork": "Ork green warning marker",
+      "interdicted": "Red dashed border, Inquisitorial 'I' seal"
+    },
+    "shape_conventions_per_wyrmlog_v6": "Circles for planets/moons; lozenges/diamonds for space stations and Craftworlds; small dots for asteroids; rings for fields/swarms; arrows for fleets/moving forces. Class-specific glyph is the corner-mark or centre-mark.",
+    "see_also": "art/render_system_map.py and art/render_system_map_extra_styles.py for the SVG implementations of these conventions in the codified RT generator pipeline. skill/warhammer-40k-lore/references/insignia-heraldry.md for full Chapter/Legion/Sept/Dynasty icon catalogue."
+  },
+
+  "lookup_helpers": {
+    "_doc": "Convenience indexes for downstream consumers. Generate at load time from `designations` if not already cached.",
+    "by_id": "{designation.id: designation}",
+    "by_greek_class": "{designation.greek_class: designation} (only entries with non-null greek_class)",
+    "by_category": "{category: [designation, ...]}"
+  },
+
+  "consumer_integration": {
+    "_doc": "How this file is consumed across the codified-systems pipeline.",
+    "rules_classify_world_py": "rules/classify_world.py loads classification_rules.rules and applies them to RT14 generator output. Produces details.designation_suggested and details.environment_subtype_suggested per body.",
+    "rules_lore_generation_py": "rules/lore_generation.py loads lore_classification_overrides.rules and applies them after faction/NPC assignment. Writes details.designation and details.designation_source.",
+    "art_render_system_map_py": "art/render_system_map*.py reads designations[].iconography for class-glyph overlay rendering. Falls back to base body-class glyph when designation is null or has no canonical iconography.",
+    "warhammer_40k_lore_skill": "Used by the warhammer-40k-lore skill (via reference look-up) when answering 'what type of world is this?' questions about generated systems."
+  }
+}

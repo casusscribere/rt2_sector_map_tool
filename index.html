@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Patavian Reach — Interactive Sector Chart</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:ital@0;1&display=swap');
+:root{
+  --gold:#C9A05A; --gilt:#FFD700; --red:#8B0000; --black:#0c0c0c;
+  --panel:#14110c; --panel2:#1d1812; --bone:#e4e4d8; --muted:#9a8a6a;
+  --font-head:'Cinzel',serif; --font-body:'EB Garamond',Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#3a342a;color:var(--bone);font-family:var(--font-body);overflow:hidden}
+#app{display:flex;height:100%}
+#viewport{flex:1;position:relative;overflow:hidden;background:#3a342a;cursor:grab}
+#viewport.panning{cursor:grabbing}
+#viewport.mode-add,#viewport.mode-route,#viewport.mode-split,#viewport.mode-merge{cursor:crosshair}
+#viewport.mode-region,#viewport.mode-extra{cursor:default}
+#viewport.mode-nebdraw{cursor:crosshair}
+/* in geometry-editing modes, planets and routes must not swallow clicks */
+#viewport.mode-region .planet *,#viewport.mode-region .route *,
+#viewport.mode-split .planet *,#viewport.mode-split .route *,
+#viewport.mode-merge .planet *,#viewport.mode-merge .route *,
+#viewport.mode-extra .planet *,#viewport.mode-extra .route *,
+#viewport.mode-nebdraw .planet *,#viewport.mode-nebdraw .route *{pointer-events:none}
+.lbl-handle{fill:#FFD700;fill-opacity:.85;stroke:#4f3d27;stroke-width:1.5;cursor:move}
+.bend-handle{fill:#efe6cf;stroke:#4f3d27;stroke-width:1.5;cursor:move}
+.bend-handle:hover{fill:#FFD700}
+/* nebula hit paths are live in Select mode (hover/select) and Extrasolar mode */
+.neb-hit{pointer-events:none}
+#viewport.mode-extra .neb-hit{pointer-events:all;cursor:pointer}
+#viewport:not([class*="mode-"]) .neb-hit{pointer-events:all;cursor:pointer}
+/* hover info card (Select mode) */
+#hovercard{position:absolute;display:none;pointer-events:none;z-index:50;max-width:280px;
+  background:#efe6cf;border:1.5px solid #4f3d27;box-shadow:2px 3px 8px rgba(0,0,0,.35);
+  padding:.45rem .65rem;color:#2e2218;font-family:var(--font-body);font-size:.85rem;line-height:1.35}
+#hovercard .hc-title{font-family:var(--font-head);font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:#4f3d27;margin-bottom:.2rem;border-bottom:1px solid #c9bda0;padding-bottom:.15rem}
+/* fleets — part of the political layer; editable in Political mode */
+#viewport.mode-fleetadd{cursor:crosshair}
+.fleet{cursor:pointer}
+.fleet .halo{display:none;fill:none;stroke:#8B0000;stroke-width:2.5;stroke-dasharray:4 4;pointer-events:none}
+.fleet.selected .halo{display:block}
+.fleet-name{font-family:var(--font-body);fill:#2e2218;font-size:22px;font-style:italic;text-anchor:middle;paint-order:stroke;stroke:#e7dcc3;stroke-width:4px;pointer-events:none}
+#viewport.mode-region .fleet *,#viewport.mode-split .fleet *,#viewport.mode-merge .fleet *,
+#viewport.mode-extra .fleet *,#viewport.mode-nebdraw .fleet *,
+#viewport.mode-add .fleet *,#viewport.mode-route .fleet *,
+#viewport.mode-poldraw .fleet *,#viewport.mode-fleetadd .fleet *{pointer-events:none}
+#viewport.mode-fleetadd .planet *,#viewport.mode-fleetadd .route *{pointer-events:none}
+/* political territories */
+#viewport.mode-pol{cursor:default}
+#viewport.mode-poldraw{cursor:crosshair}
+.terr-hit{pointer-events:none}
+#viewport.mode-pol .terr-hit{pointer-events:all;cursor:pointer}
+.terr-label{font-family:var(--font-head);font-size:30px;letter-spacing:.2em;text-anchor:middle;pointer-events:none;opacity:.8}
+#viewport.mode-pol .planet *,#viewport.mode-pol .route *,
+#viewport.mode-poldraw .planet *,#viewport.mode-poldraw .route *{pointer-events:none}
+/* events */
+#viewport.mode-events{cursor:default}
+#viewport.mode-eventadd{cursor:crosshair}
+.event{cursor:pointer}
+.event .halo{display:none;fill:none;stroke:#8B0000;stroke-width:2.5;stroke-dasharray:4 4;pointer-events:none}
+.event.selected .halo{display:block}
+.event-name{font-family:var(--font-body);fill:#2e2218;font-size:22px;text-anchor:middle;paint-order:stroke;stroke:#e7dcc3;stroke-width:4px;pointer-events:none}
+#viewport.mode-region .event *,#viewport.mode-split .event *,#viewport.mode-merge .event *,
+#viewport.mode-extra .event *,#viewport.mode-nebdraw .event *,#viewport.mode-add .event *,
+#viewport.mode-route .event *,#viewport.mode-pol .event *,#viewport.mode-poldraw .event *,
+#viewport.mode-fleetadd .event *,#viewport.mode-eventadd .event *{pointer-events:none}
+#viewport.mode-events .planet *,#viewport.mode-events .route *,#viewport.mode-events .fleet *,
+#viewport.mode-eventadd .planet *,#viewport.mode-eventadd .route *,#viewport.mode-eventadd .fleet *{pointer-events:none}
+#world{position:absolute;top:0;left:0;transform-origin:0 0}
+/* --- chart svg --- */
+.face-wash{cursor:pointer}
+.face-line{fill:none;stroke:#4f3d27;stroke-width:1.6;pointer-events:none}
+.face.selected .face-line{stroke:#8B0000;stroke-width:3}
+.region-name{font-family:var(--font-head);fill:#7d6743;letter-spacing:.32em;text-anchor:middle;pointer-events:none;opacity:.85}
+.edge-hit{fill:none;stroke:transparent;stroke-width:18;cursor:copy}
+.vtx{fill:#efe6cf;stroke:#4f3d27;stroke-width:2;cursor:move}
+.vtx:hover{fill:var(--gilt)}
+.nebula{pointer-events:none}
+.neb-label{font-family:var(--font-body);font-style:italic;fill:#6b5a3e;text-anchor:middle;pointer-events:none}
+.planet circle.body,.planet polygon.body{stroke:#2e2218;stroke-width:2.5;cursor:pointer}
+.planet.selected .halo{display:block}
+.halo{display:none;fill:none;stroke:#8B0000;stroke-width:2.5;stroke-dasharray:4 4;pointer-events:none}
+.planet text,.planet-name{font-family:var(--font-body);fill:#2e2218;font-size:22px;text-anchor:middle;paint-order:stroke;stroke:#e7dcc3;stroke-width:4px;pointer-events:none}
+.route-path{fill:none;cursor:pointer}
+.route-hit{fill:none;stroke:transparent;stroke-width:18;cursor:pointer}
+.route.selected .route-path{filter:drop-shadow(0 0 3px #8B0000)}
+.route text,.route-name{font-family:var(--font-body);font-size:20px;font-style:italic;text-anchor:middle;paint-order:stroke;stroke:#e7dcc3;stroke-width:4px;pointer-events:none}
+.waypoint{fill:#8B0000;stroke:#e7dcc3;stroke-width:1.5;cursor:move}
+.pending-line{stroke:#8B0000;stroke-width:2.5;stroke-dasharray:6 6;fill:none;pointer-events:none}
+.chart-furniture{pointer-events:none}
+/* --- sidebar --- */
+#sidebar{width:330px;min-width:330px;background:var(--panel);border-left:2px solid var(--gold);display:flex;flex-direction:column;overflow:hidden}
+#sidebar h1{font-family:var(--font-head);font-size:1.05rem;color:var(--gold);letter-spacing:.12em;text-align:center;margin:.7rem .5rem .2rem;text-transform:uppercase}
+#sidebar h2{font-family:var(--font-head);font-size:.8rem;color:var(--gold);letter-spacing:.1em;margin:.9rem 0 .35rem;text-transform:uppercase;border-bottom:1px solid #3a2f1d;padding-bottom:.2rem}
+/* collapsible sections */
+.sec>h2{cursor:pointer;user-select:none}
+.sec>h2::before{content:'☰';margin-right:.45rem;font-size:.7rem;color:#7a6a4a}
+.sec>h2::after{content:'▾';float:right;color:#7a6a4a}
+.sec.collapsed>h2::after{content:'▸'}
+.sec.collapsed>:not(h2){display:none}
+#panel-scroll{flex:1;overflow-y:auto;padding:0 .8rem .8rem}
+.toolrow{display:flex;gap:.35rem;flex-wrap:wrap;margin:.3rem 0}
+button{font-family:var(--font-body);background:var(--panel2);color:var(--bone);border:1px solid var(--gold);padding:.3rem .6rem;cursor:pointer;font-size:.85rem}
+button:hover{background:#2a2318}
+button.active{background:var(--gold);color:var(--black);font-weight:bold}
+button.danger{border-color:var(--red);color:#e08080}
+button.danger:hover{background:var(--red);color:#fff}
+input[type=text],select,textarea,input[type=number],input[type=color]{background:var(--panel2);border:1px solid #57452a;color:var(--bone);font-family:var(--font-body);padding:.25rem .4rem;font-size:.9rem;width:100%}
+textarea{resize:vertical;min-height:54px}
+label.f{display:block;margin:.4rem 0 .1rem;font-size:.78rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.row2{display:flex;gap:.4rem}.row2>*{flex:1}
+#status{font-size:.75rem;color:var(--muted);padding:.3rem .8rem;border-top:1px solid #3a2f1d;display:flex;justify-content:space-between}
+#dirty{color:var(--gilt)}
+.toggle{display:flex;align-items:center;gap:.35rem;font-size:.85rem;margin:.15rem 0}
+.toggle .op{margin-left:auto;width:72px;padding:0;border:none;background:transparent;accent-color:var(--gold)}
+.des-desc{font-size:.78rem;color:var(--muted);margin:.3rem 0;line-height:1.3;font-style:italic}
+.hint{font-size:.78rem;color:var(--muted);font-style:italic;line-height:1.35}
+#search-results,.pl-list{max-height:140px;overflow-y:auto;margin-top:.2rem}
+.sr{padding:.15rem .3rem;cursor:pointer;font-size:.85rem}
+.sr:hover{background:#2a2318;color:var(--gilt)}
+.swatch{display:inline-block;width:.85em;height:.85em;border:1px solid #57452a;vertical-align:-2px;margin-right:.3em}
+.tl-row{display:flex;align-items:center;gap:.45rem;padding:.18rem .3rem;cursor:pointer;font-size:.9rem}
+.tl-row:hover{background:#2a2318}
+.tl-row.tl-active{color:var(--gilt)}
+.tl-row .tl-date{flex:1}
+.tl-row .tl-btn{color:var(--muted);cursor:pointer;padding:0 .15rem}
+.tl-row .tl-btn:hover{color:var(--gilt)}
+.tl-row .tl-del:hover{color:#e08080}
+/* timeline diff view */
+.diff-dim{opacity:.12}
+.diff-hot{filter:drop-shadow(0 0 4px #FFD700)}
+.ghost *{pointer-events:none}
+.ghost-name{font-family:var(--font-body);font-style:italic;fill:#8B0000;font-size:20px;text-anchor:middle;paint-order:stroke;stroke:#e7dcc3;stroke-width:4px}
+::-webkit-scrollbar{width:9px}::-webkit-scrollbar-thumb{background:#3a2f1d}::-webkit-scrollbar-track{background:var(--panel)}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="viewport"><div id="world"></div><div id="hovercard"></div></div>
+  <div id="sidebar">
+    <h1>The Patavian Reach</h1>
+    <div id="panel-scroll">
+      <div class="sec" id="sec-mode">
+      <h2>Mode</h2>
+      <div class="toolrow">
+        <button id="m-select" class="active" title="Select / drag (V)">Select</button>
+        <button id="m-add" title="Add planets (A)">Planets</button>
+        <button id="m-route" title="Draw warp routes (R)">Routes</button>
+        <button id="m-region" title="Edit regions &amp; boundaries (G)">Regions</button>
+        <button id="m-extra" title="Edit nebulae &amp; stellar disturbances (X)">Features</button>
+        <button id="m-pol" title="Territories of political control &amp; fleet pins (P)">Political</button>
+        <button id="m-event" title="Place &amp; edit event markers (E)">Events</button>
+      </div>
+      <div class="hint" id="mode-hint"></div>
+      </div>
+
+      <div class="sec" id="sec-chart">
+      <h2>Chart</h2>
+      <!-- ordered to match the layer stack, highest z first -->
+      <label class="toggle"><input type="checkbox" id="ly-stab"> Warp route stability
+        <input type="range" class="op" id="op-stab" min="0" max="1" step="0.05" value="1" title="Layer opacity"></label>
+      <label class="toggle"><input type="checkbox" id="ly-regions" checked> Regions
+        <input type="range" class="op" id="op-reg" min="0" max="1" step="0.05" value="1" title="Layer opacity"></label>
+      <label class="toggle"><input type="checkbox" id="ly-events" checked> Events
+        <input type="range" class="op" id="op-evt" min="0" max="1" step="0.05" value="1" title="Layer opacity (names unaffected)"></label>
+      <label class="toggle"><input type="checkbox" id="ly-pol"> Political
+        <input type="range" class="op" id="op-pol" min="0" max="1" step="0.05" value="1" title="Layer opacity"></label>
+      <label class="toggle"><input type="checkbox" id="ly-labels" checked> Planets
+        <input type="range" class="op" id="op-pla" min="0" max="1" step="0.05" value="1" title="Layer opacity (names unaffected)"></label>
+      <label class="toggle"><input type="checkbox" id="ly-routes" checked> Warp routes
+        <input type="range" class="op" id="op-rt" min="0" max="1" step="0.05" value="1" title="Layer opacity (names unaffected)"></label>
+      <label class="toggle"><input type="checkbox" id="ly-nebulae" checked> Extrasolar features
+        <input type="range" class="op" id="op-neb" min="0" max="1" step="0.05" value="1" title="Layer opacity (names unaffected)"></label>
+      <label class="toggle"><input type="checkbox" id="ly-grid"> Extended gridlines
+        <input type="range" class="op" id="op-grid" min="0" max="1" step="0.05" value="1" title="Layer opacity"></label>
+      </div>
+
+      <div class="sec" id="sec-find">
+      <h2>Find</h2>
+      <input type="text" id="search" placeholder="Search planets &amp; regions…">
+      <div id="search-results"></div>
+      </div>
+
+      <div class="sec" id="editor"></div>
+
+      <div class="sec" id="sec-time">
+      <h2>Timeline</h2>
+      <div id="timeline-list"></div>
+      <div class="toolrow" style="margin-top:.4rem"><button id="b-adddate">+ Add Date</button></div>
+      <label class="f" style="margin-top:.5rem">Compare with</label>
+      <select id="tl-compare"><option value="">— compare off —</option></select>
+      <div class="hint" id="tl-diffinfo"></div>
+      <div class="hint">Each date keeps its own complete map state. Click a date to switch to it; ✎ renames, ✕ removes. Use Imperial dating, e.g. <i>3 456 817.M41</i>.</div>
+      </div>
+
+      <div class="sec" id="sec-data">
+      <h2>Data</h2>
+      <div class="toolrow">
+        <button id="b-undo" title="Ctrl+Z">Undo</button>
+        <button id="b-export">Export JSON</button>
+        <button id="b-import">Import JSON</button>
+        <input type="file" id="file-import" accept=".json" style="display:none">
+      </div>
+      <div class="hint">Export writes <i>patavian_reach.json</i>. Save it over <i>source/patavian_reach.json</i> and rerun <i>gen_data_js.py</i> to persist.</div>
+      </div>
+    </div>
+    <div id="status"><span id="counts"></span><span id="dirty"></span></div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="designations.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
