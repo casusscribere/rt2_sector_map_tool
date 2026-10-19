@@ -1,6 +1,6 @@
 # Interactive Patavian Reach Map — Plan
 
-**Status:** v0.2 — vector lithograph base + full-coverage region tessellation. (v0.1 raster-overlay prototype: 2026-06-11, same day.) Source of truth: `data/maps/patavian_reach.json`.
+**Status:** v0.2 — vector lithograph base + full-coverage region tessellation. (v0.1 raster-overlay prototype: 2026-06-11, same day.) Source of truth: `data/maps/patavian_reach.json` (since 2026-10-18: `campaign/setting/patavian_reach/patavian_reach.json`).
 
 ## Architecture (v0.2)
 
@@ -49,7 +49,7 @@ art/web/reach_map_tool/
   data.js / designations.js — generated wrappers (gen_data_js.py)
   reach_map_2.png — kept on disk as source reference only (not rendered)
   PLAN.md
-data/maps/patavian_reach.json — canonical data (v0.2 schema)
+data/maps/patavian_reach.json — canonical data (v0.2 schema; now campaign/setting/patavian_reach/)
 ```
 
 Round trip unchanged: Export JSON → overwrite canonical file → `gen_data_js.py`.

@@ -1,9 +1,9 @@
 {
   "app": "rt2_sector_map_tool",
-  "built_at": "2026-07-15T16:19:03",
+  "built_at": "2026-10-19T00:00:50",
   "source": "codified-systems/rogue_trader/apps/rt2_sector_map_tool",
   "inputs": [
-    "data/maps/patavian_reach.json",
+    "campaign/setting/patavian_reach/patavian_reach.json",
     "data/tables/planet_designations.json"
   ]
 }

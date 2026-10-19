@@ -88,8 +88,9 @@ The browser app edits an in-memory copy. To persist your work:
 
 This is a **generated bundle** — do not hand-edit (see `_GENERATED_DO_NOT_EDIT.txt`). The
 hand-edited source lives in `codified-systems/rogue_trader/apps/rt2_sector_map_tool/`; the `source/`
-JSON bundled here is copied from the corpus (`data/maps/patavian_reach.json`,
-`data/tables/planet_designations.json`) — the single source of truth.
+JSON bundled here is copied from the campaign tree (`campaign/setting/patavian_reach/patavian_reach.json`,
+the homebrew sector map) and the corpus (`data/tables/planet_designations.json`) — the single
+sources of truth.
 
 Rebuild this bundle after editing the corpus data or the app source:
 
